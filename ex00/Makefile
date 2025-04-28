@@ -6,17 +6,15 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 16:19:07 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/04/28 16:20:34 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/04/28 17:18:37 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= megaphone
-CC					= g++
-CFLAGS				= -Wall -Wextra -Werror
-
-SRC_FILES			= cleanup.c \
-
-OBJ_FILES			= $(SRC_FILES:.c=.o)
+CC					= c++
+CFLAGS				= -Wall -Wextra -Werror -std=c++98
+SRC_FILES			= ex00.cpp
+OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re
 
@@ -26,7 +24,7 @@ $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 	@echo "Compiled executable: $(NAME)"
 
-%.o: %.c philosophers.h
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
