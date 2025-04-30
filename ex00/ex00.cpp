@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:21:15 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/04/28 17:25:45 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/04/30 12:08:57 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main (int ac, char **av)
 
     for (int i = 1; i < ac; i++)
     {
-        for (int j = 0; i < av[i][j]; j++)
+        for (int j = 0; av[i][j] != '\0'; j++)
         {
             std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(av[i][j])));
         }
