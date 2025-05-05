@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:11:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/05 16:27:17 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:40:32 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ class PhoneBook
     public:
         PhoneBook(): contactCount(0), nextIndex(0) {}
         void addContact();
-        void searchContact();
-        
+        void searchContact() const;
 }
