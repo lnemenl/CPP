@@ -6,14 +6,14 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 14:29:39 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/04/30 14:30:02 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/05/06 08:36:30 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= phonebook
 CC					= c++
-CFLAGS				= -Wall -Wextra -Werror -std=c++98
-SRC_FILES			= ex01.cpp
+CFLAGS				= -Wall -Wextra -Werror -std=c++11
+SRC_FILES			= main.cpp PhoneBook.cpp Contact.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re

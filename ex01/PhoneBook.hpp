@@ -6,11 +6,18 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:11:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/05 16:40:32 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/06 09:53:34 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
 #include "Contact.hpp"
+#include <limits>
+#include <iostream>
+
 
 class PhoneBook
 {
@@ -23,4 +30,6 @@ class PhoneBook
         PhoneBook(): contactCount(0), nextIndex(0) {}
         void addContact();
         void searchContact() const;
-}
+};
+
+#endif

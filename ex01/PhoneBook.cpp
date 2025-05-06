@@ -6,11 +6,10 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/05 17:07:44 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/06 09:52:24 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.hpp"
 
 void PhoneBook::addContact()
@@ -44,5 +43,27 @@ void PhoneBook::searchContact() const
 				<< std::setw(10) << "Last Name" << "|"
 				<< std::setw(10) << "Nickname" << std::endl;
 	
+	for (int i = 0; i < contactCount; ++i)
+		contacts[i].displaySummary(i);
 	
+	std::cout << "Enter index to view full contact: " << std::endl;
+
+	int index;
+	
+	if (!(std::cin >> index))
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input" << std::endl;
+		return;
+	}
+	if (index < 0 || index >= contactCount)
+	{
+		std::cout << "Invalid index" << std::endl;
+	}
+	else
+	{
+		std::cin.ignore();
+		contacts[index].displayFull();
+	}
 }

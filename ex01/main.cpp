@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/05 13:27:55 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/06 09:52:39 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 int main()
 {
@@ -19,12 +20,12 @@ int main()
 
     while (true)
     {
-        std::cout << ["Enter ADD/SEARCH/EXIT"] << std::endl;
+        std::cout << "[Enter ADD/SEARCH/EXIT]" << std::endl;
         std::getline(std::cin, command);
 
         if (std::cin.eof())
         {
-            std::cout << ["EOF reached"];
+            std::cout << "[EOF reached]";
             break;
         }
             
@@ -35,8 +36,8 @@ int main()
         else if (command == "EXIT")
             break;
         else
-            std::cout << ["Invalid command"] << std::endl;
+            std::cout << "[Invalid command]" << std::endl;
     }
-    std::cout << ["Bye bye"] << std::endl;
+    std::cout << "[Bye bye]" << std::endl;
     return (0);
 }
