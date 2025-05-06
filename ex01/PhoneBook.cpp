@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/06 14:09:09 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/06 14:46:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ void PhoneBook::searchContact() const
 		std::cout << "A PhoneBook is empty\n";
 		return;
 	}
-	std::cout	<< std::setw(10) << "Index" << "|"
+	std::cout	<< std::setw(10) << "Index"	<< "|"
 				<< std::setw(10) << "First Name" << "|"
 				<< std::setw(10) << "Last Name" << "|"
-				<< std::setw(10) << "Nickname" << "\n";
+				<< std::setw(10) << "Nickname" << "|"
+				<< std::setw(10) << "Phone" << "|"
+				<< std::setw(10) << "Secret" << "\n";
 	
 	for (int i = 0; i < contactCount; ++i)
 		contacts[i].displaySummary(i);
