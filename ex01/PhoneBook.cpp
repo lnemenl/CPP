@@ -6,11 +6,13 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/06 14:46:00 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/07 14:06:09 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook(): contactCount(0), nextIndex(0) {}
 
 void PhoneBook::addContact()
 {
@@ -19,8 +21,9 @@ void PhoneBook::addContact()
 
 	if (!newContact.isEmpty())
 	{
-		contacts[nextIndex] = newContact;
-		nextIndex = (nextIndex + 1) % MAX_CONTACTS;
+		contacts[nextIndex % MAX_CONTACTS] = newContact;
+		nextIndex++;
+		//nextIndex = (nextIndex + 1) % MAX_CONTACTS;
 		if (contactCount < MAX_CONTACTS)
 			++contactCount;
 		std::cout << "Contact added\n";
@@ -57,8 +60,10 @@ void PhoneBook::searchContact() const
 		std::cout << "Invalid input\n";
 		return;
 	}
-	if (index < 0 || index >= contactCount)
+	if (index < 0 || index >= contactCount) {
+		std::cin.ignore();
 		std::cout << "Invalid index\n";
+	}
 	else
 	{
 		std::cin.ignore();

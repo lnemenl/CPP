@@ -6,11 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:21:15 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/04/30 12:08:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:44:37 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
 
 int main (int ac, char **av)
 {    
@@ -22,11 +23,15 @@ int main (int ac, char **av)
 
     for (int i = 1; i < ac; i++)
     {
-        for (int j = 0; av[i][j] != '\0'; j++)
-        {
-            std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(av[i][j])));
+        // for (int j = 0; av[i][j] != '\0'; j++)
+        // {
+        //     std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(av[i][j])));
+        // }
+        std::string avv = static_cast<std::string>(av[i]);
+        for (char &c: avv) {
+            std::cout << static_cast<char>(std::toupper(c));
         }
     }
-    std::cout << "\n" << std::flush;
+    std::cout << std::endl;
     return (0);
 }

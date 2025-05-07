@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/07 07:37:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:54:15 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ std::string toUpper(const std::string &str)
 	{
 		if (result[i] >= 'a' && result[i] <= 'z')
 			result[i] = result[i] - 'a' + 'A';
+			// 4o svoya funkciya??
 	}
 	return (result);
 }

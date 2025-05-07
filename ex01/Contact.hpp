@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 11:09:49 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/07 07:08:56 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/07 11:04:14 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 class Contact
 {
 	private:
-	
 		std::string firstName;
 		std::string lastName;
 		std::string nickname;
