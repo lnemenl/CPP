@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/06 13:53:29 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/07 07:32:49 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,10 @@ bool Contact::isEmpty() const
 			darkestSecret.empty();
 }
 
+std::string Contact::formatField(const std::string &field) const
+{
+	if (field.length() > 10)
+		return (field.substr(0, 9) + ".");
+	else
+		return (std::string(10 - field.length(), ' ') + field);
+}
