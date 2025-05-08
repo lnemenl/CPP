@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 11:09:49 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/07 11:04:14 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 08:42:55 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cctype>
 
 class Contact
 {
@@ -36,6 +37,7 @@ class Contact
 	
 	private:
 		std::string formatField(const std::string &field) const;
+		bool isNumeric(const std::string &str) const;
 };
 
 #endif

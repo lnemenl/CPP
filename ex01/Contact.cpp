@@ -6,12 +6,22 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/07 07:32:49 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 08:42:46 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Contact.hpp"
+
+bool Contact::isNumeric(const std::string &str) const
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!std::isdigit(str[i]))
+			return (false);
+	}
+	return (true);
+}
 
 void Contact::setContact()
 {
@@ -34,9 +44,17 @@ void Contact::setContact()
 	nickname = input;
 
 	std::cout << "ENTER PHONE NUMBER" << std::endl;
-	std::getline(std::cin, input);
-	if (input.empty()) return;
-	phoneNumber = input;
+	while (true)
+	{
+		std::getline(std::cin, input);
+		if (input.empty()) return;
+		if (isNumeric(input))
+		{
+			phoneNumber = input;
+			break;
+		}
+		std::cout << "Phone number must contain only digits" << std::endl;
+	}
 
 	std::cout << "ENTER DARKEST SECRET" << std::endl;
 	std::getline(std::cin, input);

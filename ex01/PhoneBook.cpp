@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/07 14:06:09 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 08:45:43 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void PhoneBook::addContact()
 	{
 		contacts[nextIndex % MAX_CONTACTS] = newContact;
 		nextIndex++;
-		//nextIndex = (nextIndex + 1) % MAX_CONTACTS;
 		if (contactCount < MAX_CONTACTS)
 			++contactCount;
 		std::cout << "Contact added\n";
@@ -52,15 +51,19 @@ void PhoneBook::searchContact() const
 	std::cout << "Enter index to view full contact: " << std::endl;
 
 	int index;
-	
+	/*	If fails, returns false and stream enters a failed state by setting the failbit flag	*/
 	if (!(std::cin >> index))
 	{
+		/*	Clearing the error flag in order stream can be used again	*/
 		std::cin.clear();
+		/*	Since the invalid input remains in the input buffer,
+			we need to discard all characters in the input buffer	*/
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Invalid input\n";
 		return;
 	}
-	if (index < 0 || index >= contactCount) {
+	if (index < 0 || index >= contactCount)
+	{
 		std::cin.ignore();
 		std::cout << "Invalid index\n";
 	}

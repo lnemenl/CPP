@@ -6,13 +6,18 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/07 13:54:15 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 08:44:02 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
+
+/*
+the standard C++ library's std::toupper()
+function only works on a single character at a time.
+*/
 
 std::string toUpper(const std::string &str)
 {
@@ -21,7 +26,6 @@ std::string toUpper(const std::string &str)
 	{
 		if (result[i] >= 'a' && result[i] <= 'z')
 			result[i] = result[i] - 'a' + 'A';
-			// 4o svoya funkciya??
 	}
 	return (result);
 }
