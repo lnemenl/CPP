@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 08:42:46 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 11:09:21 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ void Contact::displaySummary(int index) const
 	std::cout	<< std::setw(10) << index << "|"
 				<< formatField(firstName) << "|"
 				<< formatField(lastName) << "|"
-				<< formatField(nickname) << "|"
-				<< formatField(phoneNumber) << "|"
-				<< formatField(darkestSecret) << "\n";
+				<< formatField(nickname) << "\n";
 }
 
 void Contact::displayFull() const
@@ -78,7 +76,6 @@ void Contact::displayFull() const
 	std::cout << "Last name: " << lastName << "\n";
 	std::cout << "Nickname: " << nickname << "\n";
 	std::cout << "Phone number: " << phoneNumber << "\n";
-	std::cout << "Darkest secret: " << darkestSecret << "\n";
 }
 
 bool Contact::isEmpty() const

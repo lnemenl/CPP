@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:21:15 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 08:47:04 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 10:49:01 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cstring>
 
 int main (int ac, char **av)
-{    
+{
     if (ac < 2)
     {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
