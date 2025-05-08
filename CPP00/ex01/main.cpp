@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:51:16 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:24:11 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,24 @@ std::string toUpper(const std::string &str)
 
 int main()
 {
-	PhoneBook phoneBook;
-	std::string command;
-
-	while (true)
+    PhoneBook phoneBook;
+    std::string command;
+    do
 	{
-		
-		std::cout << "Enter ADD | SEARCH | EXIT" << std::endl;
-		std::getline(std::cin, command);
-
-		if (std::cin.eof())
-		{
-			std::cout << "EOF reached\n";
-			break;
-		}
-		std::string cmd_upper = toUpper(command);
-			
-		if (cmd_upper == "ADD")
-			phoneBook.addContact();
-		else if (cmd_upper == "SEARCH")
-			phoneBook.searchContact();
-		else if (cmd_upper == "EXIT")
-			break;
-		else
-			std::cout << "Invalid command" << "\n";
-	}
-	std::cout << "Bye bye 👋" << "\n";
-	return (0);
+        std::cout << "Enter ADD | SEARCH | EXIT" << std::endl;
+        if (!std::getline(std::cin, command))
+            break;
+        std::string cmd_upper = toUpper(command);
+        if (cmd_upper == "ADD")
+            phoneBook.addContact();
+        else if (cmd_upper == "SEARCH")
+            phoneBook.searchContact();
+        else if (cmd_upper == "EXIT")
+            break;
+        else
+            std::cout << "Invalid command" << "\n"; 
+    }
+	while (!std::cin.eof());
+    std::cout << "Bye bye 👋" << "\n";
+    return (0);
 }

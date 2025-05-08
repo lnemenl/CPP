@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:42:56 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:19:30 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void Contact::setContact()
 {
 	std::string input;
 	
-
 	std::cout << "ENTER FIRST NAME" << std::endl;
 	std::getline(std::cin, input);
 	if (std::cin.eof()) return;

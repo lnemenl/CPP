@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 13:30:26 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:16:08 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ void PhoneBook::addContact()
 			++contactCount;
 		std::cout << "Contact added\n";
 	}
+	else if (newContact.isEmpty() && std::cin.eof())
+		return;
 	else
-		std::cout << "Please fill in all the fields. Contact not saved\n";
+		return;
 }
 
 void PhoneBook::searchContact() const
