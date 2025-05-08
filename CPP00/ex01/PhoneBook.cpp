@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 11:08:09 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 13:30:26 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,29 @@ void PhoneBook::searchContact() const
 		contacts[i].displaySummary(i);
 	
 	std::cout << "Enter index to view full contact: " << std::endl;
-
-	int index;
-	/*	If fails, returns false and stream enters a failed state by setting the failbit flag	*/
-	if (!(std::cin >> index))
+	std::string input;
+    std::getline(std::cin, input);
+    if (std::cin.eof())
 	{
-		/*	Clearing the error flag in order stream can be used again	*/
-		std::cin.clear();
-		/*	Since the invalid input remains in the input buffer,
-			we need to discard all characters in the input buffer	*/
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Invalid input\n";
-		return;
-	}
-	if (index < 0 || index >= contactCount)
+        std::cin.clear();
+        return;
+    }
+    if (input.empty())
 	{
-		std::cin.ignore();
-		std::cout << "Invalid index\n";
-	}
+        std::cout << "Invalid input: empty string\n";
+        return;
+    }
+    for (size_t i = 0; i < input.length(); ++i)
+	{
+        if (!std::isdigit(input[i]))
+		{
+            std::cout << "Invalid input: not a number\n";
+            return;
+        }
+    }
+    int index = std::stoi(input);
+    if (index < 0 || index >= contactCount)
+        std::cout << "Invalid index\n";
 	else
-	{
-		std::cin.ignore();
-		contacts[index].displayFull();
-	}
+        contacts[index].displayFull();
 }

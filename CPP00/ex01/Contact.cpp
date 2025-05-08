@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 11:09:21 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 13:42:56 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,19 @@ void Contact::setContact()
 
 	std::cout << "ENTER FIRST NAME" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof()) return;
 	if (input.empty()) return;
 	firstName = input;
 
 	std::cout << "ENTER LAST NAME" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof()) return;
 	if (input.empty()) return;
 	lastName = input;
 
 	std::cout << "ENTER NICKNAME" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof()) return;
 	if (input.empty()) return;
 	nickname = input;
 
@@ -47,6 +50,7 @@ void Contact::setContact()
 	while (true)
 	{
 		std::getline(std::cin, input);
+		if (std::cin.eof()) return;
 		if (input.empty()) return;
 		if (isNumeric(input))
 		{
@@ -58,6 +62,7 @@ void Contact::setContact()
 
 	std::cout << "ENTER DARKEST SECRET" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof()) return;
 	if (input.empty()) return;
 	darkestSecret = input;
 }

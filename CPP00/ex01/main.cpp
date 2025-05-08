@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 08:44:02 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/08 13:51:16 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main()
 
 	while (true)
 	{
+		
 		std::cout << "Enter ADD | SEARCH | EXIT" << std::endl;
 		std::getline(std::cin, command);
 
@@ -45,7 +46,6 @@ int main()
 			std::cout << "EOF reached\n";
 			break;
 		}
-
 		std::string cmd_upper = toUpper(command);
 			
 		if (cmd_upper == "ADD")
