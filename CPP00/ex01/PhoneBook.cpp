@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 14:16:08 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/09 09:43:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void PhoneBook::searchContact() const
     }
     for (size_t i = 0; i < input.length(); ++i)
 	{
-        if (!std::isdigit(input[i]))
+        if (!std::isdigit(input[i]) && i != 0)
 		{
             std::cout << "Invalid input: not a number\n";
             return;
