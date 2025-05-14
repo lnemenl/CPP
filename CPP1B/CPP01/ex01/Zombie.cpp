@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 14:17:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 11:38:23 by rkhakimu         ###   ########.fr       */
+/*   Created: 2025/05/09 14:16:58 by rkhakimu          #+#    #+#             */
+/*   Updated: 2025/05/14 12:01:01 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <string>
-#include <memory>
-#include <iostream>
+#include "Zombie.hpp"
 
-class Zombie
+Zombie::Zombie(void)
 {
-	public:
-		explicit Zombie(std::string name);
-		~Zombie();
-		void announce() const;
-	private:
-		std::string name_;
-};
+}
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+void Zombie::announce() const
+{
+    std::cout << this->name_ << " BraiiiiiiinnnzzzZ..." << "\n";
+}
+
+Zombie::~Zombie()
+{
+    std::cout << this->name_ << " is destroyed\n";    
+}
+
+
+Zombie::Zombie(std::string name)
+{
+    name_ = name;
+}
+
+void Zombie::setName(std::string name)
+{
+    this->name_ = name;
+}

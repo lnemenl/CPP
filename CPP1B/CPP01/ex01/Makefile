@@ -6,14 +6,14 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 14:03:16 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/05/14 10:49:48 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/05/14 11:45:21 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= Zombie
+NAME				= Zombie2
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror -std=c++20
-SRC_FILES			= newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
+SRC_FILES			= zombieHorde.cpp Zombie.cpp main.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re
