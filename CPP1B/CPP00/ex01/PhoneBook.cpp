@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/09 09:43:00 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:07:25 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,16 @@ void PhoneBook::searchContact() const
             return;
         }
     }
-    int index = std::stoi(input);
-    if (index < 0 || index >= contactCount)
+	try
+	{
+	    int index = std::stoi(input);
+		if (index < 0 || index >= contactCount)
         std::cout << "Invalid index\n";
-	else
-        contacts[index].displayFull();
+		else
+        	contacts[index].displayFull();
+	}
+	catch (std::exception &e)
+	{
+        std::cout << "Invalid index\n";
+	}
 }
