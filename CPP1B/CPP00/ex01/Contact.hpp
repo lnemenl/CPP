@@ -6,18 +6,16 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 11:09:49 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/09 09:45:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/15 11:31:42 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
-#define MAX_CONTACTS 8
-
+#pragma once
 #include <iostream>
 #include <string>
 #include <iomanip>
 #include <cctype>
+#define MAX_CONTACTS 8
 
 class Contact
 {
@@ -29,7 +27,6 @@ class Contact
 		std::string darkestSecret;
 	
 	public:
-		
 		void setContact();
 		void displaySummary(int index) const;
 		void displayFull() const;
@@ -39,5 +36,3 @@ class Contact
 		std::string formatField(const std::string &field) const;
 		bool isNumeric(const std::string &str) const;
 };
-
-#endif

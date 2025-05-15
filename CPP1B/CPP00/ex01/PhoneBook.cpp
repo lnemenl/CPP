@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/15 10:07:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/15 11:27:26 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void PhoneBook::addContact()
 		nextIndex++;
 		if (contactCount < MAX_CONTACTS)
 			++contactCount;
-		std::cout << "Contact added\n";
+		std::cout << "Contact added" << std::endl;
 	}
-	else if (newContact.isEmpty() && std::cin.eof())
+	else if (std::cin.eof())
 		return;
 	else
 		return;
@@ -43,7 +43,7 @@ void PhoneBook::searchContact() const
 	std::cout	<< std::setw(10) << "Index"	<< "|"
 				<< std::setw(10) << "First Name" << "|"
 				<< std::setw(10) << "Last Name" << "|"
-				<< std::setw(10) << "Nickname" << "\n";
+				<< std::setw(10) << "Nickname" << std::endl;
 	
 	for (int i = 0; i < contactCount; ++i)
 		contacts[i].displaySummary(i);
@@ -58,14 +58,14 @@ void PhoneBook::searchContact() const
     }
     if (input.empty())
 	{
-        std::cout << "Invalid input: empty string\n";
+        std::cout << "Invalid input: empty string" << std::endl;
         return;
     }
     for (size_t i = 0; i < input.length(); ++i)
 	{
         if (!std::isdigit(input[i]) && i != 0)
 		{
-            std::cout << "Invalid input: not a number\n";
+            std::cout << "Invalid input: not a number" << std::endl;
             return;
         }
     }
@@ -79,6 +79,6 @@ void PhoneBook::searchContact() const
 	}
 	catch (std::exception &e)
 	{
-        std::cout << "Invalid index\n";
+        std::cout << "Invalid index" << std::endl;
 	}
 }

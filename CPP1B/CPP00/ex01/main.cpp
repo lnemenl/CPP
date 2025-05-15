@@ -6,18 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/08 14:24:11 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/15 11:15:01 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-
-
-/*
-the standard C++ library's std::toupper()
-function only works on a single character at a time.
-*/
 
 std::string toUpper(const std::string &str)
 {
@@ -47,9 +41,9 @@ int main()
         else if (cmd_upper == "EXIT")
             break;
         else
-            std::cout << "Invalid command" << "\n"; 
+            std::cout << "Invalid command" << std::endl; 
     }
 	while (!std::cin.eof());
-    std::cout << "Bye bye 👋" << "\n";
+    std::cout << "Bye bye 👋" << std::endl;
     return (0);
 }

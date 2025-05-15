@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/09 09:45:27 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/15 11:31:48 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void Contact::setContact()
 		}
 		std::cout << "Phone number must contain only digits" << std::endl;
 	}
-
 	std::cout << "ENTER DARKEST SECRET" << std::endl;
 	std::getline(std::cin, input);
 	if (std::cin.eof()) return;
@@ -71,15 +70,15 @@ void Contact::displaySummary(int index) const
 	std::cout	<< std::setw(10) << index << "|"
 				<< formatField(firstName) << "|"
 				<< formatField(lastName) << "|"
-				<< formatField(nickname) << "\n";
+				<< formatField(nickname) << std::endl;
 }
 
 void Contact::displayFull() const
 {
-	std::cout << "First name: " << firstName << "\n";
-	std::cout << "Last name: " << lastName << "\n";
-	std::cout << "Nickname: " << nickname << "\n";
-	std::cout << "Phone number: " << phoneNumber << "\n";
+	std::cout << "First name: " << firstName << std::endl;
+	std::cout << "Last name: " << lastName << std::endl;
+	std::cout << "Nickname: " << nickname << std::endl;
+	std::cout << "Phone number: " << phoneNumber << std::endl;
 }
 
 bool Contact::isEmpty() const

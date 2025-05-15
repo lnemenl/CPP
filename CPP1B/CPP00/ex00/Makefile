@@ -6,14 +6,14 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 16:19:07 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/05/08 12:09:44 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/05/15 11:32:17 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= megaphone
 CC					= c++
-CFLAGS				= -Wall -Wextra -Werror -std=c++98
-SRC_FILES			= ex00.cpp
+CFLAGS				= -Wall -Wextra -Werror -std=c++20
+SRC_FILES			= megaphone.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re

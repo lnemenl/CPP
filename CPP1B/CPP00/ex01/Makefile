@@ -6,13 +6,13 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 14:29:39 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/05/06 08:36:30 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/05/15 11:10:45 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= phonebook
 CC					= c++
-CFLAGS				= -Wall -Wextra -Werror -std=c++11
+CFLAGS				= -Wall -Wextra -Werror -std=c++20
 SRC_FILES			= main.cpp PhoneBook.cpp Contact.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
@@ -24,7 +24,7 @@ $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 	@echo "Compiled executable: $(NAME)"
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
