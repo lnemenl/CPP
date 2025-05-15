@@ -6,11 +6,11 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 14:03:16 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/05/14 11:45:21 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/05/15 11:50:20 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= Zombie2
+NAME				= ex01
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror -std=c++20
 SRC_FILES			= zombieHorde.cpp Zombie.cpp main.cpp

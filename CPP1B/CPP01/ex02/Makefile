@@ -6,11 +6,11 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 14:03:16 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/05/14 14:08:00 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/05/15 11:49:43 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= shlyapa
+NAME				= ex02
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror -std=c++20
 SRC_FILES			= main.cpp
