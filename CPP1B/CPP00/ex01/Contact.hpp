@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 11:09:49 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/15 11:31:42 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:18:53 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ class Contact
 	private:
 		std::string formatField(const std::string &field) const;
 		bool isNumeric(const std::string &str) const;
+		bool checkField(std::string& input);
 };

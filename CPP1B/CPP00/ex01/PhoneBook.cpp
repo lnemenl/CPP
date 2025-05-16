@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:30:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/15 13:58:14 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:15:49 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ void PhoneBook::addContact()
 	{
 		contacts[nextIndex % MAX_CONTACTS] = newContact;
 		nextIndex++;
+		if (nextIndex == MAX_CONTACTS)
+			nextIndex = 0;
 		if (contactCount < MAX_CONTACTS)
 			++contactCount;
 		std::cout << "Contact added" << std::endl;
 	}
-	else if (std::cin.eof())
-		return;
-	else
-		return;
 }
 
 void PhoneBook::searchContact() const
@@ -54,6 +52,8 @@ void PhoneBook::searchContact() const
     if (std::cin.eof())
 	{
         std::cin.clear();
+		std::cout << "Bye bye 👋" << std::endl;
+		exit(0);
         return;
     }
     if (input.empty())
@@ -79,6 +79,6 @@ void PhoneBook::searchContact() const
 	}
 	catch (std::exception &e)
 	{
-        std::cout << "Invalid index" << e.what() << std::endl;
+        std::cout << "Invalid index" << std::endl;
 	}
 }

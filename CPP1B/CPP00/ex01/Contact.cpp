@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:43:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/15 11:31:48 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:08:04 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,44 @@ bool Contact::isNumeric(const std::string &str) const
 	return (true);
 }
 
+bool Contact::checkField(std::string& input)
+{
+	std::getline(std::cin, input);
+	if (std::cin.eof()) return false;
+	
+	while (input.empty())
+	{
+		if (std::cin.eof()) return false;
+		std::cout << "This field cannot be empty!" << std::endl;
+		getline(std::cin, input);
+	}
+	return true;
+}
+
 void Contact::setContact()
 {
 	std::string input;
 	
 	std::cout << "ENTER FIRST NAME" << std::endl;
-	std::getline(std::cin, input);
-	if (std::cin.eof()) return;
-	if (input.empty()) return;
+	if (!checkField(input))
+		return ;
 	firstName = input;
 
 	std::cout << "ENTER LAST NAME" << std::endl;
-	std::getline(std::cin, input);
-	if (std::cin.eof()) return;
-	if (input.empty()) return;
+	if (!checkField(input))
+		return ;
 	lastName = input;
 
 	std::cout << "ENTER NICKNAME" << std::endl;
-	std::getline(std::cin, input);
-	if (std::cin.eof()) return;
-	if (input.empty()) return;
+	if (!checkField(input))
+		return ;
 	nickname = input;
 
 	std::cout << "ENTER PHONE NUMBER" << std::endl;
 	while (true)
 	{
-		std::getline(std::cin, input);
-		if (std::cin.eof()) return;
-		if (input.empty()) return;
+		if (!checkField(input))
+		return ;
 		if (isNumeric(input))
 		{
 			phoneNumber = input;
@@ -59,9 +69,8 @@ void Contact::setContact()
 		std::cout << "Phone number must contain only digits" << std::endl;
 	}
 	std::cout << "ENTER DARKEST SECRET" << std::endl;
-	std::getline(std::cin, input);
-	if (std::cin.eof()) return;
-	if (input.empty()) return;
+	if (!checkField(input))
+		return ;
 	darkestSecret = input;
 }
 
