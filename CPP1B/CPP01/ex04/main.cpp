@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:45:02 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/19 09:16:49 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:04:59 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,32 @@
 
 std::string replaceAll(const std::string &text, const std::string &s1, const std::string &s2)
 {
-	std::string result;
-	size_t match_pos = 0;
-	size_t last_match_pos = 0;
-	
-	while ((match_pos = text.find(s1, last_match_pos)) != std::string::npos)
-	{
-		//Copying the text before the match
-		result += text.substr(last_match_pos, match_pos - last_match_pos);
-		//Adding replacement
-		result += s2;
-		last_match_pos = match_pos + s1.length();
-	}
-	//Copying remaining text
-	result = text.substr(last_match_pos);
-	return (result);
+    // Handle edge cases
+    if (s1.empty() || text.empty() || s1 == s2)
+        return text;
+
+    // Pre-allocate memory for result to avoid multiple reallocations
+    std::string result;
+    result.reserve(text.length());
+    
+    size_t pos = 0;
+    size_t prev = 0;
+    
+    // Searching for the string s1 in text starting from position prev.
+    while ((pos = text.find(s1, prev)) != std::string::npos)
+    {
+        // Append text up to the match
+        result.append(text, prev, pos - prev);                                       
+        // Append replacement
+        result.append(s2);
+        // Move past this occurrence
+        prev = pos + s1.length();
+    }
+    
+    // Append remaining text
+    result.append(text, prev, std::string::npos);
+    
+    return result;
 }
 
 int main(int ac, char **av)
@@ -43,5 +54,46 @@ int main(int ac, char **av)
 
 	std::string filename = av[1];
 	std::string s1 = av[2];
-	std::string s2 = av[3]
+	std::string s2 = av[3];
+	
+	if (s1.empty())
+	{
+		std::cerr << "Error: s1 cannot be empty" << std::endl;
+		return (1);
+	}
+	//Opening input file
+	std::ifstream inFile(filename);
+	if (!inFile.is_open())
+	{
+		std::cerr << "Error: Cannot open input file '" << filename << "'" << std::endl;
+		return (1);
+	}
+	//Reading file line by line
+	std::string content;
+	std::string line;
+	while (std::getline(inFile, line))
+	{
+		content += line;
+		if (!inFile.eof())
+		{
+			content += '\n';
+		}
+	}
+	inFile.close();
+	
+	std::string modifiedContent = replaceAll(content, s1, s2);
+	//Creating output filename
+	std::string outFilename = filename + ".replace";
+	std::ofstream outFile(outFilename);
+	if (!outFile.is_open())
+	{
+		std::cerr << "Error: Cannot create output file '" << outFilename << "'" << std::endl;
+		return (1);
+	}
+
+	outFile << modifiedContent;
+	outFile.close();
+	
+	return (0);
 }
+
