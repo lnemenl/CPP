@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:45:02 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/19 11:04:59 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:22:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,25 @@
 
 std::string replaceAll(const std::string &text, const std::string &s1, const std::string &s2)
 {
-    // Handle edge cases
+    //Handle edge cases
     if (s1.empty() || text.empty() || s1 == s2)
         return text;
-
-    // Pre-allocate memory for result to avoid multiple reallocations
+    //Pre-allocate memory for result to avoid multiple reallocations
     std::string result;
     result.reserve(text.length());
-    
     size_t pos = 0;
     size_t prev = 0;
-    
-    // Searching for the string s1 in text starting from position prev.
+    //Searching for the string s1 in text starting from position prev.
     while ((pos = text.find(s1, prev)) != std::string::npos)
     {
-        // Append text up to the match
+        //Append text up to the match
         result.append(text, prev, pos - prev);                                       
-        // Append replacement
+        //Append replacement
         result.append(s2);
-        // Move past this occurrence
+        //Move past this occurrence
         prev = pos + s1.length();
     }
-    
-    // Append remaining text
     result.append(text, prev, std::string::npos);
-    
     return result;
 }
 
