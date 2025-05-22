@@ -6,24 +6,36 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:16:58 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 10:50:47 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/22 13:41:33 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-void Zombie::announce() const
-{
-    std::cout << this->name_ << " BraiiiiiiinnnzzzZ..." << "\n";
-}
+/*
+    The syntax name("Unnamed") initializes the name member
+    variable directly, which is more efficient than assigning
+    it in the constructor body (e.g., name = "Unnamed";)
+    because it avoids creating a temporary object
+    and performing an assignment.
 
+    Initializer lists are preferred
+    because they initialize members directly,
+    before the constructor body runs,
+    which is more efficient than assignment in the body.
+*/
+
+Zombie::Zombie() : name("Unnamed") {}
+
+Zombie::Zombie(std::string name) : name(name) {}
 
 Zombie::~Zombie()
 {
-    std::cout << this->name_ << " is destroyed\n";    
+    std::cout << name << ": Destroyed" << std::endl;
 }
 
-Zombie::Zombie(std::string name)
+void Zombie::announce(void) const
 {
-    name_ = name;
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

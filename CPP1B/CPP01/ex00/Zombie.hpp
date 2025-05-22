@@ -6,23 +6,23 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:17:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 11:38:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/22 13:33:36 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
-#include <memory>
-#include <iostream>
 
 class Zombie
 {
 	public:
-		explicit Zombie(std::string name);
+		Zombie();
+		Zombie(std::string name);
 		~Zombie();
 		void announce() const;
+
 	private:
-		std::string name_;
+		std::string name;
 };
 
 Zombie* newZombie(std::string name);
