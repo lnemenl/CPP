@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:17:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 11:42:15 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:52:49 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 class Zombie
 {
 	public:
-		Zombie(void);
-		explicit Zombie(std::string name);
+		Zombie();
+		Zombie(std::string name);
 		~Zombie();
 		void announce() const;
 		void setName(std::string name);
+		
 	private:
-		std::string name_;
+		std::string name;
 };
 
-Zombie *zombieHorde(int N, std::string name);
+Zombie* zombieHorde(int N, std::string name);

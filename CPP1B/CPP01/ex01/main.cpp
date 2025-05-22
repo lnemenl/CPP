@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:37:05 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 12:22:15 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/22 14:13:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,32 @@
 
 int main()
 {
-    Zombie a("Ellis");
-    a.announce();
-    Zombie x = Zombie();
-    x.announce();
+    std::cout << "Creating a horde of 5 zombies" << std::endl;
+
     size_t N = 5;
-    Zombie *b = zombieHorde(N, "Eclipse");
-    for (size_t i = 0; i < N; i++)
+    Zombie* horde = zombieHorde(N, "HordeZombie");
+
+    if (!horde)
     {
-        if (b != nullptr)
-            b[i].announce();
+        std::cout << "Failed to create zombie horde" << std::endl;
+        return (1);
     }
-    delete[] b;
+    
+    for (size_t i = 0; i < N; ++i)
+    {
+        std::cout << "Zombie " << i + 1 << ": ";
+        horde[i].announce();
+    }
+
+    std::cout << "Destroying the horde" << std::endl;
+    delete[] horde;
+
+    std::cout << "Testing with N = 0" << std::endl;
+    horde = zombieHorde(0, "Invalid");
+    if (!horde)
+    {
+        std::cout << "nullptr for N <= 0 correctly returned" << std::endl;
+        return (1);
+    }
+    return (1);
 }
