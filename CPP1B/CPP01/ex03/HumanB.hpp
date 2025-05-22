@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:13:07 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 15:26:15 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:28:55 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class HumanB
 {
-    public:
-        HumanB();
-        ~HumanB();
-        HumanB(std::string name);
-        void setWeapon(Weapon & new_weapon);
-        void attack();
-    private:
-        std::string name_;
-        Weapon *weapon_;
+	private:
+		std::string name;
+		/*pointer, as HumanB may be unarmed*/
+		Weapon* weapon;
+
+	public:
+		HumanB(std::string name);
+		void setWeapon(Weapon& weapon);
+		void attack() const;
 };

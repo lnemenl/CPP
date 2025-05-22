@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:13:02 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 15:26:07 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:28:07 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 class HumanA
 {
-    public:
-        HumanA();
-        ~HumanA();
-        HumanA(std::string name, Weapon & weapon);
-        void attack();
     private:
-        std::string name_;
-        Weapon *weapon_;
+        std::string name;
+        /*reference, as HumanA is always armed*/
+        Weapon& weapon;
+
+    public:
+        HumanA(std::string name, Weapon& weapon);
+        void attack() const;
 };
