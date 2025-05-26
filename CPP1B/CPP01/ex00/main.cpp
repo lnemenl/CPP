@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:16:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 12:22:48 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 14:08:15 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,7 @@ int main(void)
     return (0);
 }
 
+/*  If an exception is thrown before the pointer is assigned
+    a valid address, deleting a nullptr is safe and does nothing.
+    Deleting an uninitialized (garbage) pointer 
+    is undefined behavior and can crash your program.*/
