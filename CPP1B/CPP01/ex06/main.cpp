@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:42:22 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/25 21:52:34 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 13:00:07 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ enum LogLevel
 	INVALID	= -1
 };
 
-LogLevel getLogLevel(const std::string& level)
+LogLevel getLogLevel(const std::string& level) // Whitout if/else...
 {
 	if (level == "DEBUG")	return (DEBUG);
 	if (level == "INFO")	return (INFO);

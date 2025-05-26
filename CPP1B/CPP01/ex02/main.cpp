@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:42:37 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/14 14:09:39 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 12:37:05 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int main()
     std::cout << &stringREF << "\n";
     
     std::cout << s << "\n";
-    std::cout << stringPTR << "\n";
+    std::cout << *stringPTR << "\n"; // Check here
     std::cout << stringREF << "\n";
 }

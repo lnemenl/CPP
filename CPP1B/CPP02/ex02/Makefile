@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/05/26 11:40:28 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/05/26 11:46:42 by rkhakimu         ###   ########.fr        #
+#    Created: 2025/05/26 11:46:52 by rkhakimu          #+#    #+#              #
+#    Updated: 2025/05/26 11:47:07 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= ex01
+NAME				= ex02
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror -std=c++20
 SRC_FILES			= main.cpp Fixed.cpp

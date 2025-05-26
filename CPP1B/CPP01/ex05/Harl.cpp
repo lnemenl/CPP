@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:23:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/22 16:45:28 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 12:57:34 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Harl::ComplaintFunc
 
-Harl::getComplaintFunc(std::string level)
+Harl::getComplaintFunc(std::string level) // REMOVE IF
 {
 	if (level == "DEBUG") return &Harl::debug;
 	if (level == "INFO") return &Harl::info;

@@ -6,7 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:39:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 11:39:13 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 11:49:24 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
+
+#include <iostream>
+#include <string>
 
