@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:37:05 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 13:19:02 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 16:00:57 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 int main()
 {
+	Zombie* horde = nullptr;
 	try
 	{
 		std::cout << "Creating a horde of 5 zombies" << std::endl;
 
-		size_t N = 5;
-		Zombie* horde = zombieHorde(N, "HordeZombie");
+		int N = 5;
+		horde = zombieHorde(N, "HordeZombie");
 
 		if (!horde)
 		{
@@ -28,7 +29,7 @@ int main()
 			return (1);
 		}
 		
-		for (size_t i = 0; i < N; ++i)
+		for (int i = 0; i < N; ++i)
 		{
 			std::cout << "Zombie " << i + 1 << ": ";
 			horde[i].announce();
@@ -36,6 +37,7 @@ int main()
 
 		std::cout << "Destroying the horde" << std::endl;
 		delete[] horde;
+		horde = nullptr;
 
 		std::cout << "Testing with N = 0" << std::endl;
 		horde = zombieHorde(0, "Invalid");
@@ -44,14 +46,10 @@ int main()
 			std::cout << "nullptr for N <= 0 correctly returned" << std::endl;
 		}
 	}
-	catch (const std::bad_alloc& e)
+	catch (...)
 	{
-		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
-		return (1);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "An exception occurred: " << e.what() << std::endl;
+		delete[] horde;
+		std::cerr << "Try again" << std::endl;
 		return (1);
 	}
 	return (0);

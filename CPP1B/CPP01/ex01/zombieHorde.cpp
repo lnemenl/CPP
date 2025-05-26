@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:13:54 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/22 15:54:02 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:41:50 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Zombie* zombieHorde(int N, std::string name)
         return (nullptr);
     }
     Zombie* horde = new Zombie[N];
-    for (size_t i = 0; i < (size_t)N; ++i)
+    for (int i = 0; i < N; ++i)
     {
         horde[i].setName(name);
     }
