@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:42:22 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/22 12:02:06 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/25 21:52:34 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 enum LogLevel
 {
-	DEBUG = 0,
-	INFO = 1,
-	WARNING = 2,
-	ERROR = 3,
-	INVALID = -1
+	DEBUG	= 0,
+	INFO	= 1,
+	WARNING	= 2,
+	ERROR	= 3,
+	INVALID	= -1
 };
 
 LogLevel getLogLevel(const std::string& level)
