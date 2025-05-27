@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:42:07 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/22 11:47:01 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:54:36 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,4 @@ class Harl
 		void info();
 		void warning();
 		void error();
-		typedef void(Harl::*ComplaintFunc)();
-		ComplaintFunc getComplaintFunc(std::string level);
 };

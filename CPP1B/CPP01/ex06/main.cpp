@@ -6,30 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:42:22 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 13:00:07 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:11:23 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
-
-enum LogLevel
-{
-	DEBUG	= 0,
-	INFO	= 1,
-	WARNING	= 2,
-	ERROR	= 3,
-	INVALID	= -1
-};
-
-LogLevel getLogLevel(const std::string& level) // Whitout if/else...
-{
-	if (level == "DEBUG")	return (DEBUG);
-	if (level == "INFO")	return (INFO);
-	if (level == "WARNING")	return (WARNING);
-	if (level == "ERROR")	return (ERROR);
-	return (INVALID);
-}
 
 int main(int ac, char **av)
 {
@@ -40,22 +22,37 @@ int main(int ac, char **av)
 	}
 	
 	Harl harl;
-	std::string level = av[1];
-	LogLevel logLevel = getLogLevel(level);
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	switch (logLevel)
+	int i;
+	for (; i < 4; i++)
 	{
-	case DEBUG:
+		if (av[1] == levels[i])
+		break;
+	}
+	
+	switch (i)
+	{
+	case 0:
 		harl.complain("DEBUG");
-	case INFO:
 		harl.complain("INFO");
-	case WARNING:
 		harl.complain("WARNING");
-	case ERROR:
+		harl.complain("ERROR");
+		break;
+	case 1:
+		harl.complain("INFO");
+		harl.complain("WARNING");
+		harl.complain("ERROR");
+		break;
+	case 2:
+		harl.complain("WARNING");
+		harl.complain("ERROR");
+		break;
+	case 3:
 		harl.complain("ERROR");
 		break;
 	default:
-		std::cout << "[Harl] invalid level: " << level << std::endl;
+		std::cout << "[Harl] invalid level: " << av[1] << std::endl;
 	}
 	return (0);
 }
