@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:42:22 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/27 15:11:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:11:18 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int ac, char **av)
 	Harl harl;
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	int i;
+	int i = 0;
 	for (; i < 4; i++)
 	{
 		if (av[1] == levels[i])
@@ -35,19 +35,10 @@ int main(int ac, char **av)
 	{
 	case 0:
 		harl.complain("DEBUG");
-		harl.complain("INFO");
-		harl.complain("WARNING");
-		harl.complain("ERROR");
-		break;
 	case 1:
 		harl.complain("INFO");
-		harl.complain("WARNING");
-		harl.complain("ERROR");
-		break;
 	case 2:
 		harl.complain("WARNING");
-		harl.complain("ERROR");
-		break;
 	case 3:
 		harl.complain("ERROR");
 		break;
