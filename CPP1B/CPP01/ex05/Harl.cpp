@@ -6,36 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:23:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 12:57:34 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:43:11 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
-
-Harl::ComplaintFunc
-
-Harl::getComplaintFunc(std::string level) // REMOVE IF
-{
-	if (level == "DEBUG") return &Harl::debug;
-	if (level == "INFO") return &Harl::info;
-	if (level == "WARNING") return &Harl::warning;
-	if (level == "ERROR") return &Harl::error;
-	return nullptr;	
-}
-
-void Harl::complain(std::string level)
-{
-	ComplaintFunc func = getComplaintFunc(level);
-	if (func)
-	{
-		(this->*func)();
-	}
-	else
-	{
-		std::cout << "[Harl] Invalid level: " << level << std::endl;
-	}
-}
 
 void Harl::debug()
 {
@@ -62,4 +38,26 @@ void Harl::error()
 {
 	std::cout	<< "[ERROR] This is unacceptable! I want to speak to the manager now."
 				<< std::endl;
+}
+
+void Harl::complain(std::string level)
+{
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*complaints[4])() = 
+	{
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+	};
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (levels[i] == level)
+		{
+			(this->*complaints[i])();
+			return ;
+		}
+	}
+	std::cout << "[INVALID] Probably complaining about insignificant problems." << std::endl;
 }
