@@ -6,12 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:17:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 13:34:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:14:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#include <iostream>
 
 class Zombie
 {

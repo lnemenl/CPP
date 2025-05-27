@@ -6,12 +6,11 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:42:37 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 16:08:54 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:15:35 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 
 int main()
 {

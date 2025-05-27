@@ -6,12 +6,11 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:37:05 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 16:00:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:15:18 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <iostream>
 
 int main()
 {

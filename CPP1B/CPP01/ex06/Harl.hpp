@@ -6,12 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:42:07 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/27 14:54:36 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:18:51 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#include <iostream>
 
 class Harl
 {

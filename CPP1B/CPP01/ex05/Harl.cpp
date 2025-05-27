@@ -6,12 +6,11 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:23:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/27 14:53:15 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:18:23 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <iostream>
 
 void Harl::debug()
 {

@@ -6,12 +6,11 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:16:58 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 13:40:16 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:14:05 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <iostream>
 
 Zombie::Zombie() : name("Unnamed") {}
 
