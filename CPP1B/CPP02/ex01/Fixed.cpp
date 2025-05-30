@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:40:24 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/30 16:53:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/30 17:33:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ Fixed::Fixed() : _value(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int)
+Fixed::Fixed(const int num)
 {
     std::cout << "Int constructor called" << std::endl;
+    num << fract_bits - 1;
 }
 
-Fixed::Fixed(const float)
+Fixed::Fixed(const float num)
 {
     std::cout << "Float constructor called" << std::endl;
 }
@@ -43,9 +44,10 @@ Fixed& Fixed::operator=(const Fixed& obj)
     return *this;
 }
 
-Fixed& Fixed::operator<<(const Fixed& obj)
+std::ostream& operator<<(std::ostream& out, const Fixed& obj)
 {
-    
+    out << obj.toFloat();
+    return out;
 }
 
 Fixed::~Fixed()
