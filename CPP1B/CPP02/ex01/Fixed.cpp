@@ -6,7 +6,60 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:40:24 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/26 11:40:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:53:57 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+Fixed::Fixed() : _value(0)
+{
+    std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int)
+{
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float)
+{
+    std::cout << "Float constructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed& obj)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    *this = obj;
+}
+
+Fixed& Fixed::operator=(const Fixed& obj)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &obj)
+    {
+        _value = obj._value;
+    }
+    return *this;
+}
+
+Fixed& Fixed::operator<<(const Fixed& obj)
+{
+    
+}
+
+Fixed::~Fixed()
+{
+    std::cout << "Destructor called" << std::endl;
+}
+
+float Fixed::toFloat(void) const
+{
+    
+}
+
+int Fixed::toInt(void) const
+{
+    
+}
 
