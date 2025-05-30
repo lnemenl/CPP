@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:45:02 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/27 16:17:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/30 07:49:41 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,12 @@ int main(int ac, char **av)
 	}
 	//Opening input file
 	std::ifstream inFile(filename);
-	if (!inFile.is_open())
+	
+	//Trying to open a file that doesn’t exist.
+	//Trying to read from a file that couldn’t be opened.
+	//Trying to open a directory as if it were a file.
+	
+	if (inFile.fail())
 	{
 		std::cerr << "Error: Cannot open input file '" << filename << "'" << std::endl;
 		return (1);
