@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:41:16 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 15:15:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/31 15:47:23 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ class Fixed
 		Fixed& operator=(const Fixed& obj);
 		~Fixed();
 		
+		Fixed(const int num);
+		Fixed(const float num);
+		float toFloat(void) const;
+		int toInt(void) const;
+		
 		//Comparison operators
 		bool	operator>(const Fixed& obj) const;
 		bool	operator<(const Fixed& obj) const;
@@ -35,10 +40,10 @@ class Fixed
 		bool	operator!=(const Fixed& obj) const;
 		
 		//Arithmetic operators
-		Fixed&	operator+(const Fixed& obj) const;
-		Fixed&	operator-(const Fixed& obj) const;
-		Fixed&	operator*(const Fixed& obj) const;
-		Fixed&	operator/(const Fixed& obj) const;
+		Fixed	operator+(const Fixed& obj) const;
+		Fixed	operator-(const Fixed& obj) const;
+		Fixed	operator*(const Fixed& obj) const;
+		Fixed	operator/(const Fixed& obj) const;
 		
 		//I/D operators
 		Fixed&	operator++();
@@ -52,3 +57,5 @@ class Fixed
 		static 	const Fixed& min(const Fixed& a, const Fixed& b);
 		static 	const Fixed& max(const Fixed& a, const Fixed& b);
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& obj);

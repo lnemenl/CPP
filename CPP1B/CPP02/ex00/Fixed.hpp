@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:39:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/30 16:11:35 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/31 15:30:17 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 class Fixed
 {
-    private:
-        int _value;
-        static const int fract_bits = 8;
-        
-    public:
-        Fixed();
-        Fixed (const Fixed& obj);
-        Fixed& operator=(const Fixed& obj);
-        ~Fixed();
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+	private:
+		int _value;
+		static const int fract_bits = 8;
+		
+	public:
+		Fixed();
+		Fixed (const Fixed& obj);
+		Fixed& operator=(const Fixed& obj);
+		~Fixed();
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 };
