@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:41:09 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 15:47:18 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/31 15:56:09 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-/*---------------------------Comparison operators---------------------------*/
+/*-----------------------------Comparison operators-----------------------------*/
 
 bool	Fixed::operator>(const Fixed& obj) const
 {
@@ -100,7 +100,7 @@ bool	Fixed::operator!=(const Fixed& obj) const
 	return !(_value == obj._value);
 }
 
-/*---------------------------Arithmetic operators---------------------------*/
+/*------------------------------Arithmetic operators------------------------------*/
 
 Fixed Fixed::operator+(const Fixed& obj) const
 {
@@ -124,7 +124,7 @@ Fixed Fixed::operator/(const Fixed& obj) const
 	return Fixed(this->toFloat() / obj.toFloat());
 }
 
-/*---------------------------I/D operators---------------------------*/
+/*-----------------------------------I/D operators-----------------------------------*/
 
 Fixed&	Fixed::operator++()
 {
@@ -152,7 +152,7 @@ Fixed	Fixed::operator--(int)
 	return (temp);
 }
 
-/*---------------------------MIN/MAX---------------------------*/
+/*---------------------------------------MIN/MAX---------------------------------------*/
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
 {
