@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:41:09 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 15:56:09 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:08:51 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ std::ostream& operator<<(std::ostream& out, const Fixed& obj)
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 	_value = num << fract_bits;
 }
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 	_value = static_cast<int>(roundf(num * (1 << fract_bits)));
 }
 
@@ -44,18 +44,18 @@ int Fixed::toInt(void) const
 
 Fixed::Fixed() : _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed& Fixed::operator=(const Fixed& obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
 		_value = obj._value;
@@ -65,7 +65,7 @@ Fixed& Fixed::operator=(const Fixed& obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 /*-----------------------------Comparison operators-----------------------------*/
