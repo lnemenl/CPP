@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:11:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 11:05:07 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/02 13:49:25 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,44 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+
+//Member functions
+
+void ClapTrap::attack(const std::string& target)
+{
+	if (hit_points == 0 || energy_points == 0)
+	{
+		std::cout << "ClapTrap " << name << " cannot attack. No hit points or energy points left." << std::endl;
+		return ;
+	}
+	energy_points--;
+	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;	  
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	if (hit_points == 0)
+	{
+		std::cout << "ClapTrap " << name << " is already destroyed." << std::endl;
+		return ;		
+	}
+	if (amount >= hit_points)
+			hit_points = 0;
+	else
+		hit_points -= amount;
+	std::cout << "ClapTrap " << name << " takes " << amount << " points of damage." << std::endl; 
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	if (hit_points == 0 || energy_points == 0)
+	{
+		std::cout << "ClapTrap " << name << " cannot repair. No hit points or energy points left." << std::endl;
+		return ;
+	}
+	energy_points--;
+	hit_points += amount;
+	std::cout << "ClapTrap " << name << " repairs itself, recovering " << amount << " hit points." << std::endl; 
+}
+
