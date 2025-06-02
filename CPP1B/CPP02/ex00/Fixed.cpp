@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:39:10 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 15:30:07 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:46:59 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ Fixed::Fixed() : _value(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed (const Fixed& obj)
+Fixed::Fixed (const Fixed& obj) : _value(obj._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = obj;
 }
 
 Fixed& Fixed::operator=(const Fixed& obj)

@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:41:16 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 15:47:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:04:52 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ class Fixed
 		//rest
 		static 	Fixed& min(Fixed& a, Fixed& b);
 		static 	Fixed& max(Fixed& a, Fixed& b);
-		static 	const Fixed& min(const Fixed& a, const Fixed& b);
+		static 	const Fixed& min(const Fixed& a, const Fixed& b); //Static means the function is called from the class, not an object.
 		static 	const Fixed& max(const Fixed& a, const Fixed& b);
 };
 
