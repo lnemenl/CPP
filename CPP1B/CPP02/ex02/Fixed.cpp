@@ -6,28 +6,15 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:41:09 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 14:26:03 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:42:43 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-std::ostream& operator<<(std::ostream& out, const Fixed& obj)
+int Fixed::getFractionalBits()
 {
-	out << obj.toFloat();
-	return out;
-}
-
-Fixed::Fixed(const int num)
-{
-	//std::cout << "Int constructor called" << std::endl;
-	_value = num << fract_bits;
-}
-
-Fixed::Fixed(const float num)
-{
-	//std::cout << "Float constructor called" << std::endl;
-	_value = static_cast<int>(roundf(num * (1 << fract_bits)));
+	return fract_bits;
 }
 
 float Fixed::toFloat(void) const
@@ -38,6 +25,36 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
 	return _value >> fract_bits;
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& obj)
+{
+	out << obj.toFloat();
+	return out;
+}
+
+Fixed::Fixed(const int num)
+{
+	int64_t result = static_cast<int64_t>(num) << fract_bits;
+	if (result > std::numeric_limits<int>::max() || result < std::numeric_limits<int>::min())
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	//std::cout << "Int constructor called" << std::endl;
+	_value = static_cast<int>(result);
+}
+
+Fixed::Fixed(const float num)
+{
+	int64_t result = static_cast<int64_t>(roundf((num) * (1 << fract_bits)));
+	if (result > std::numeric_limits<int>::max() || result < std::numeric_limits<int>::min())
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	//std::cout << "Int constructor called" << std::endl;
+	_value = static_cast<int>(result);
 }
 
 /*---------------------------Orthodox Canonical form---------------------------*/
@@ -104,52 +121,112 @@ bool	Fixed::operator!=(const Fixed& obj) const
 
 Fixed Fixed::operator+(const Fixed& obj) const
 {
-	return Fixed(this->toFloat() + obj.toFloat());
+    int64_t result = static_cast<int64_t>(this->_value) + static_cast<int64_t>(obj._value);
+    if (result > std::numeric_limits<int>::max() || result < std::numeric_limits<int>::min())
+	{
+        std::cerr << "Overflow occurred" << std::endl;
+        throw std::out_of_range("overflow occurred");
+    }
+    Fixed sum;
+    sum._value = static_cast<int>(result);
+    return sum;
 }
 
 Fixed Fixed::operator-(const Fixed& obj) const
 {
-	return Fixed(this->toFloat() - obj.toFloat());
+	int64_t result = static_cast<int64_t>(this->_value) - static_cast<int64_t>(obj._value); 
+	if (result > std::numeric_limits<int>::max() || result < std::numeric_limits<int>::min())
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	Fixed subtract;
+	subtract._value = static_cast<int>(result);
+	return subtract;
 }
 
 Fixed Fixed::operator*(const Fixed& obj) const
 {
-	return Fixed(this->toFloat() * obj.toFloat());
+	int64_t result = (static_cast<int64_t>(this->_value) * static_cast<int64_t>(obj._value)) >> fract_bits;
+	if (result > std::numeric_limits<int>::max() || result < std::numeric_limits<int>::min())
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	Fixed mult;
+	mult._value = static_cast<int>(result);
+	return mult;
 }
 
 Fixed Fixed::operator/(const Fixed& obj) const
 {
 	if (obj._value == 0)
+	{
 		std::cerr << "Cannot divide by 0" << std::endl;
-	return Fixed(this->toFloat() / obj.toFloat());
+		throw std::invalid_argument("division by zero");
+	}
+		
+	int64_t result = (static_cast<int64_t>(this->_value) << fract_bits) / static_cast<int64_t>(obj._value); 
+	if (result > std::numeric_limits<int>::max() || result < std::numeric_limits<int>::min())
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	Fixed div;
+	div._value = static_cast<int>(result);
+	return div;
 }
 
 /*-----------------------------------I/D operators-----------------------------------*/
 
+//Prefix Increment (++x)
 Fixed&	Fixed::operator++()
 {
-	this->_value++;
+	if (_value == std::numeric_limits<int>::max())
+	{
+		std::cerr << "Overflow occured in prefix increment" << std::endl;
+		throw std::out_of_range("overflow occured"); 
+	}
+	++_value;
 	return *this;
 }
 
+//Postfix increment (x++)
 Fixed	Fixed::operator++(int)
 {
 	Fixed temp(*this);
-	this->_value++;
-	return (temp);
+	if (_value == std::numeric_limits<int>::max())
+	{
+		std::cerr << "Overflow occured in postfix increment" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	++_value;
+	return temp;
 }
 
+//Prefix decrement(--x)
 Fixed&	Fixed::operator--()
 {
-	this->_value--;
-	return *this;
+    if (_value == std::numeric_limits<int>::min())
+	{
+        std::cerr << "Overflow occurred in prefix decrement" << std::endl;
+        throw std::out_of_range("overflow occurred");
+    }
+    --_value;
+    return *this;
 }
 
+//Postfix decrement(x--)
 Fixed	Fixed::operator--(int)
 {
-	Fixed temp(*this);
-	this->_value--;
-	return (temp);
+    Fixed temp(*this);
+    if (_value == std::numeric_limits<int>::min())
+	{
+        std::cerr << "Overflow occurred in postfix decrement" << std::endl;
+        throw std::out_of_range("overflow occurred");
+    }
+    --_value;
+    return temp;
 }
 
 /*---------------------------------------MIN/MAX---------------------------------------*/

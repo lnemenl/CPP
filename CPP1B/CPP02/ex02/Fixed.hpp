@@ -6,13 +6,14 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:41:16 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 16:04:52 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:41:46 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <cmath>
 #include <iostream>
+#include <limits>
 
 class Fixed
 {
@@ -30,6 +31,7 @@ class Fixed
 		Fixed(const float num);
 		float toFloat(void) const;
 		int toInt(void) const;
+		static int getFractionalBits();
 		
 		//Comparison operators
 		bool	operator>(const Fixed& obj) const;

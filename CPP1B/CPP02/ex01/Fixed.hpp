@@ -6,13 +6,14 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:40:26 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 15:29:42 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:25:36 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 class Fixed
 {
