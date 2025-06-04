@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:11:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 13:49:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:54:58 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj)
 	{
-		this->name = obj.name;
+		name = obj.name;
 		hit_points = obj.hit_points;
 		energy_points = obj.energy_points;
 		attack_damage = obj.attack_damage;
@@ -48,7 +48,6 @@ ClapTrap::~ClapTrap()
 
 
 //Member functions
-
 void ClapTrap::attack(const std::string& target)
 {
 	if (hit_points == 0 || energy_points == 0)

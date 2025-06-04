@@ -6,7 +6,23 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:12:33 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 10:12:34 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 20:45:01 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
+{
+	public:
+		ScavTrap();
+		ScavTrap(const std::string& name);
+		ScavTrap(const ScavTrap& obj);
+		ScavTrap& operator=(const ScavTrap& obj);
+	   ~ScavTrap();
+	   void	guardGate();
+};
+
+#endif

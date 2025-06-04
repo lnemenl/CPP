@@ -6,11 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:11:55 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 10:45:55 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:56:54 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 #include <iostream>
 
 class ClapTrap
@@ -31,3 +32,5 @@ class ClapTrap
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };
+
+#endif
