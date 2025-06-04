@@ -6,13 +6,14 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:39:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/02 10:37:52 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:59:43 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <iostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
+#include <iostream>
 
 class Fixed
 {
@@ -28,3 +29,5 @@ class Fixed
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
+
+#endif

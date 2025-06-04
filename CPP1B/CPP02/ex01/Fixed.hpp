@@ -6,11 +6,13 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:40:26 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/04 16:25:36 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:59:39 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 #include <cmath>
 #include <limits>
@@ -34,3 +36,5 @@ class Fixed
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& obj);
+
+#endif
