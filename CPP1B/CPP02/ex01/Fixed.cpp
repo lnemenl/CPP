@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 11:40:24 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/05/31 19:36:35 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/04 14:00:27 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,32 @@ Fixed::Fixed() : _value(0)
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
-	_value = num << fract_bits;
+	int64_t result = static_cast<int64_t>(num) << fract_bits;
+	if ((int)result != result)
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	else
+	{
+		std::cout << "Int constructor called" << std::endl;
+		_value = static_cast<int>(result);
+	}
 }
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called" << std::endl;
-	_value = static_cast<int>(roundf(num * (1 << fract_bits)));
+	int64_t result = static_cast<int64_t>(roundf((num) * (1 << fract_bits)));
+	if ((int)result != result)
+	{
+		std::cerr << "Overflow occured" << std::endl;
+		throw std::out_of_range("overflow occured");
+	}
+	else
+	{
+		std::cout << "Int constructor called" << std::endl;
+		_value = static_cast<int>(result);
+	}
 }
 
 Fixed::Fixed(const Fixed& obj)
