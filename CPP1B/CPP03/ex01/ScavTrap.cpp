@@ -6,47 +6,59 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:12:31 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/04 21:25:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/06 15:08:37 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()  name(), hit_points(100), energy_points(50), attack_damage(20)
+
+ScavTrap::ScavTrap() : ClapTrap("Default")
 {
-    std::cout << "Constructor ScavTrap called" << std::endl;
+	std::cout << "[ScavTrap] Constructor called for " << name << std::endl;
+	hit_points = 100;
+	energy_points = 50;
+	attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : name(name), hit_points(100), energy_points(50), attack_damage(20)
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-    std::cout << "Constructor ScavTrap with name called" << std::endl;
+	std::cout << "[ScavTrap] Constructor with name called for " << name << std::endl;
+	hit_points = 100;
+	energy_points = 50;
+	attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& obj) :
-    name(obj.name), hit_points(obj.hit_points), energy_points(obj.energy_points), attack_damage(obj.attack_damage)
+ScavTrap::ScavTrap(const ScavTrap& obj) : ClapTrap (obj)
 {
-    std::cout << "Copy Constructor ScavTrap called" << std::endl;
+	std::cout << "[ScavTrap] Copy Constructor called: copied " << obj.name << "into " << this->name << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
 {
-    std::cout << "Copy assignment operator ScavTrap called" << std::endl;
-    if (this != &obj)
-    {
-        name = obj.name;
-        hit_points = obj.hit_points;
-        energy_points = obj.energy_points;
-        attack_damage = obj.attack_damage;
-    }
-    return *this;
+	if (this != &obj)
+		ClapTrap::operator=(obj);
+	std::cout << "[ScavTrap] Copy assignment operator called: from " << obj.name << " to " << this->name << std::endl;
+	return *this;
 }
 
 ScavTrap:: ~ScavTrap()
 {
-    std::cout << "Destructor ScavTrap called" << std::endl;
+	std::cout << "[ScavTrap] Destructor called for " << name << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap is now in Gate keeper mode"
+	std::cout << "[ScavTrap] is now in Gate keeper mode" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (hit_points == 0 || energy_points == 0)
+	{
+		std::cout << "ScavTrap " << name << " cannot attack. No hit points or energy points left." << std::endl;
+		return ;
+	}
+	energy_points--;
+	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;	  
 }
