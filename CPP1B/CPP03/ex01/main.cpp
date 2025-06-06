@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:12:08 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/06 15:37:33 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:02:58 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int main()
 
 	std::cout << "\n=== COPY CONSTRUCTOR ===" << std::endl;
 	ClapTrap original("OG");
-	ClapTrap copy(original);  // should call copy constructor
+	ClapTrap copy(original);  // copy constructor call
 
 	std::cout << "\n=== COPY ASSIGNMENT ===" << std::endl;
 	ClapTrap source("Source");
 	ClapTrap target("Target");
-	target = source;          // should call assignment operator
+	target = source;          // assignment operator call
 
 	std::cout << "\n=== SCAVTRAP TESTS ===" << std::endl;
 	ScavTrap scav1("Guardian");

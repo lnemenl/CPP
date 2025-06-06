@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:12:05 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/06 15:14:53 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:00:14 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ ClapTrap::~ClapTrap()
 }
 
 
-//Member functions
+/*===========================================Member functions===========================================*/
+
+
 void ClapTrap::attack(const std::string& target)
 {
 	if (hit_points == 0 || energy_points == 0)

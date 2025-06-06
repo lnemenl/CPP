@@ -6,31 +6,29 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:11:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/06 12:52:31 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:00:19 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name(), hit_points(10), energy_points(10), attack_damage(0)
+ClapTrap::ClapTrap() : name("Default"), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "Default constructor ClapTrap called" << std::endl;
+	std::cout << "[ClapTrap] Default constructor called for " << name <<  std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) : name(name), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "Constructor ClapTrap with name called" << std::endl;
+	std::cout << "[ClapTrap] Constructor with name called for " << name <<  std::endl;
 }
 
-ClapTrap::ClapTrap (const ClapTrap& obj)
-	: name(obj.name), hit_points(obj.hit_points), energy_points(obj.energy_points), attack_damage(obj.attack_damage)
+ClapTrap::ClapTrap (const ClapTrap& obj) : name(obj.name), hit_points(obj.hit_points), energy_points(obj.energy_points), attack_damage(obj.attack_damage)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "[ClapTrap] Copy constructor called: copied " << obj.name << " into " << this->name << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 {
-	std::cout << "Copy assignment operator ClapTrap called" << std::endl;
 	if (this != &obj)
 	{
 		name = obj.name;
@@ -38,16 +36,19 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 		energy_points = obj.energy_points;
 		attack_damage = obj.attack_damage;
 	}
+	std::cout << "[ClapTrap] Copy assignment operator called: from " << obj.name << " to " << this->name << std::endl;
 	return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "[ClapTrap] Destructor called for " << name << std::endl;
 }
 
 
-//Member functions
+/*===========================================Member functions===========================================*/
+
+
 void ClapTrap::attack(const std::string& target)
 {
 	if (hit_points == 0 || energy_points == 0)
