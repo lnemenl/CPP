@@ -42,9 +42,7 @@ void Animal::makeSound(void) const
     std::cout << "[Animal] make sound " << std::endl;
 }
 
-
 const std::string& Animal::getType() const
 {
     return (type);
 }
-
