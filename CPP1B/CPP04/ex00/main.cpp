@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:47:35 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 12:57:43 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int main()
 
     std::cout << "\n ============ WrongAnimal test ============" << std::endl;
     const WrongAnimal* wrong = new WrongCat();
+    std::cout << wrong->getType() << " " << std::endl;
     wrong->makeSound();
+    delete wrong;
     return (0);
 }

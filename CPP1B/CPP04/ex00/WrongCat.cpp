@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:42:02 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:50:03 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 12:53:02 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ WrongCat::WrongCat()
 	//std::cout << "[WrongCat] constructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& obj) : WrongCat(obj)
+WrongCat::WrongCat(const WrongCat& obj) : WrongAnimal(obj)
 {
 	//std::cout << "[WrongCat] copy constructor called" << obj.type << std::endl;
 }
