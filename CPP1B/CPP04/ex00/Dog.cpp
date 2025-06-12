@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:46:23 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:15:42 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 12:25:04 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() : Animal()
 {
 	type = "Dog";
-	std::cout << "[Dog] Contstructor called";
+	std::cout << "[Dog] Contstructor called" << std::endl;
 }
 
 Dog::Dog(const Dog& obj) : Animal(obj)

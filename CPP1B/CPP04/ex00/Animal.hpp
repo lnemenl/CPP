@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:38 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 10:28:00 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 12:21:21 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
         virtual ~Animal();
 
         virtual void makeSound() const;
-        const std::string& getType() const;
+        std::string getType() const;
 };
 
 #endif

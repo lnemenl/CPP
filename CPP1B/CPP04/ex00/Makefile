@@ -6,14 +6,14 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 18:20:03 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/06/11 18:20:16 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/06/12 12:18:27 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= ex00
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror -std=c++20
-SRC_FILES			= main.cpp Animal.cpp
+SRC_FILES			= main.cpp Animal.cpp Dog.cpp Cat.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re

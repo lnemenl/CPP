@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:15:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:16:45 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 12:24:28 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat() : Animal()
 {
 	type = "Cat";
-	std::cout << "[Cat] Contstructor called";
+	std::cout << "[Cat] Contstructor called" <<std::endl;
 }
 
 Cat::Cat(const Cat& obj) : Animal(obj)
