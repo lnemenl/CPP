@@ -6,13 +6,15 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:27:00 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 12:47:35 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -27,5 +29,9 @@ int main()
     delete meta;
     delete j;
     delete i;
+
+    std::cout << "\n ============ WrongAnimal test ============" << std::endl;
+    const WrongAnimal* wrong = new WrongCat();
+    wrong->makeSound();
     return (0);
 }
