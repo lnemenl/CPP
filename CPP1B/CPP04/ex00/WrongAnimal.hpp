@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:29:00 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:54:59 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:33:34 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal
 		~WrongAnimal();
 
 		void makeSound() const;
-		std::string getType() const;
+		const std::string& getType() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:38 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:21:21 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:39:58 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 
 class Animal
 {
-    protected:
-        std::string type;
-        
-    public:
-        Animal();
-        Animal(const Animal& obj);
-        Animal& operator=(const Animal& obj);
-        virtual ~Animal();
+	protected:
+		std::string type;
+		
+	public:
+		Animal();
+		Animal(const Animal& obj);
+		Animal& operator=(const Animal& obj);
+		virtual ~Animal();
 
-        virtual void makeSound() const;
-        std::string getType() const;
+		virtual void makeSound() const;
+		const std::string& getType() const; //Returns a reference to the string type. Not possible to modify it.
 };
 
 #endif

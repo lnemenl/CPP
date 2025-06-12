@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:41:17 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 12:26:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:35:17 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 class Cat : public Animal
 {
-    public:
-        Cat();
-        Cat(const Cat& obj);
-        Cat& operator=(const Cat& obj);
-        ~Cat();
+	public:
+		Cat();
+		Cat(const Cat& obj);
+		Cat& operator=(const Cat& obj);
+		~Cat();
 
-        void makeSound() const override;
-    
+		void makeSound() const override;
+	
 };
 
 #endif
