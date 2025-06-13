@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:15:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/13 12:44:06 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/13 12:46:50 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Cat& Cat::operator=(const Cat& obj)
 
 Cat::~Cat()
 {
-	std::cout << "[Cat] destructor called" << std::endl;
+	//std::cout << "[Cat] destructor called" << std::endl;
 	delete(brain);
 }
 

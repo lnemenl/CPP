@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:30:09 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 13:59:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/13 12:47:04 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Animal& Animal::operator=(const Animal& obj)
 
 Animal::~Animal()
 {
-	std::cout << "[Animal] destructor called" << std::endl;
+	//std::cout << "[Animal] destructor called" << std::endl;
 }
 
 const std::string& Animal::getType() const
