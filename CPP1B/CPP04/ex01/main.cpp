@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 13:59:43 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/13 16:51:24 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,58 +18,53 @@
 
 int main()
 {
-	std::cout << "\n=== Polymorphic array test ===" << std::endl;
+    std::cout << "\n=== Polymorphism Test ===" << std::endl;
 
-	const int size = 4;
-	const Animal* animals[size];
+    const Animal* animals[4];
 
-	for (int i = 0; i < size; ++i) {
-		if (i % 2 == 0)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
-	}
+    for (int i = 0; i < 4; ++i)
+	{
+        if (i % 2 == 0)
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+    }
 
-	for (int i = 0; i < size; ++i) {
-		std::cout << animals[i]->getType() << ": ";
-		animals[i]->makeSound();
-	}
+    std::cout << "\n=== makeSound Test ===" << std::endl;
+    for (int i = 0; i < 4; ++i)
+	{
+        std::cout << animals[i]->getType() << ": ";
+        animals[i]->makeSound();
+    }
 
-	for (int i = 0; i < size; ++i)
-		delete animals[i];
-
-	std::cout << "\n=== Virtual destructor check ===" << std::endl;
-
-	const Animal* a = new Dog();
-	delete a; // Should call Dog::~Dog() then Animal::~Animal()
-
-
+    for (int i = 0; i < 4; ++i)
+        delete animals[i];
 	
+    std::cout << "\n=== Deep Copy Test ===" << std::endl;
+    Cat* cat1 = new Cat();
+    cat1->setIdea(0, "Chase laser");
+    cat1->setIdea(1, "Nap on the keyboard");
 
-	// const Animal* meta = new Animal();
-	// const Animal* j = new Dog();
-	// const Animal* i = new Cat();
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound();
-	// j->makeSound();
-	// meta->makeSound();
-	// delete meta;
-	// delete j;
-	// delete i;
+    Cat* cat2 = new Cat(*cat1); // copy constructor
 
-	std::cout << "\n=== Reference polymorphism test ===" << std::endl;
+    std::cout << "Cat1 idea[0]: " << cat1->getIdea(0) << std::endl;
+    std::cout << "Cat2 idea[0]: " << cat2->getIdea(0) << std::endl;
 
-	Dog dog;
-	const Animal& animalRef = dog;
-	animalRef.makeSound();
+    cat1->setIdea(0, "Ignore humans");
 
+    std::cout << "After modification:" << std::endl;
+    std::cout << "Cat1 idea[0]: " << cat1->getIdea(0) << std::endl;
+    std::cout << "Cat2 idea[0]: " << cat2->getIdea(0) << std::endl;
 
-	std::cout << "\n ============ WrongAnimal test ============" << std::endl;
-	const WrongAnimal* wrong = new WrongCat();
-	std::cout << wrong->getType() << " " << std::endl;
-	wrong->makeSound();
-	delete wrong;
+    delete cat1;
+    delete cat2;
 
-	return (0);
+    std::cout << "\n=== WrongAnimal Test ===" << std::endl;
+
+    const WrongAnimal* wrong = new WrongCat();
+    std::cout << "Wrong type: " << wrong->getType() << std::endl;
+    wrong->makeSound();
+    delete wrong;
+
+    return 0;
 }
