@@ -6,18 +6,20 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 14:22:03 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 14:46:11 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/13 11:45:28 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
 Brain::Brain() : ideas() {}
+
 Brain::Brain(const Brain& obj) 
 {
 	for (int i = 0; i < 100; ++i)
 		ideas[i] = obj.ideas[i];
 }
+
 Brain& Brain::operator=(const Brain& obj)
 {
 	if (this != &obj)
@@ -27,6 +29,7 @@ Brain& Brain::operator=(const Brain& obj)
 	}
 	return *this;
 }
+
 Brain::~Brain() {}
 
 void Brain::setIdea(int index, const std::string& idea)

@@ -6,16 +6,20 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:41:17 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 13:35:17 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/13 12:32:31 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
+	private:
+		Brain* brain;
+
 	public:
 		Cat();
 		Cat(const Cat& obj);
@@ -23,6 +27,8 @@ class Cat : public Animal
 		~Cat();
 
 		void makeSound() const override;
+		void setIdea(int index, const std::string& idea);
+		const std::string getIdea(int index) const;
 	
 };
 

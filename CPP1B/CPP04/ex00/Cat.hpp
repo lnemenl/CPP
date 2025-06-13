@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:41:17 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 13:35:17 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/13 12:33:50 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Cat : public Animal
 		~Cat();
 
 		void makeSound() const override;
-	
 };
 
 #endif
