@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:15:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 14:00:01 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 11:42:28 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ Cat::~Cat()
 
 void Cat::makeSound() const
 {
-	std::cout << "[MEOW] sound" << std::endl;
+	std::cout << "[CAT] sound" << std::endl;
 }
 

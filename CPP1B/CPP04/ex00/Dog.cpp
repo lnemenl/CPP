@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:46:23 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 14:00:04 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 11:42:33 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << "[BARK] sound" << std::endl;
+	std::cout << "[DOG] sound" << std::endl;
 }

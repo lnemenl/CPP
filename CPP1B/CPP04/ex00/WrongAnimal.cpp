@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:32:04 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 14:00:08 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 11:42:41 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ WrongAnimal::~WrongAnimal()
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "[WrongAnimal] sound" << std::endl;
+	std::cout << "[WRONG_ANIMAL] sound" << std::endl;
 }
 
 

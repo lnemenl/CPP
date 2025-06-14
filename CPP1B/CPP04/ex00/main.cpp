@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/13 11:57:07 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 11:53:03 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int main()
 {
-	std::cout << "\n=== Polymorphic array test ===" << std::endl;
+	std::cout << "\n=== Polymorphic array test ===\n" << std::endl;
 
 	const int size = 4;
 	const Animal* animals[size];
@@ -38,13 +38,10 @@ int main()
 	for (int i = 0; i < size; ++i)
 		delete animals[i];
 
-	std::cout << "\n=== Virtual destructor check ===" << std::endl;
+	std::cout << "\n=== Virtual destructor check ===\n" << std::endl;
 
 	const Animal* a = new Dog();
 	delete a; // Should call Dog::~Dog() then Animal::~Animal()
-
-
-	
 
 	// const Animal* meta = new Animal();
 	// const Animal* j = new Dog();
@@ -58,14 +55,14 @@ int main()
 	// delete j;
 	// delete i;
 
-	std::cout << "\n=== Reference polymorphism test ===" << std::endl;
+	std::cout << "\n=== Reference polymorphism test ===\n" << std::endl;
 
 	Dog dog;
 	const Animal& animalRef = dog;
 	animalRef.makeSound();
 
 
-	std::cout << "\n ============ WrongAnimal test ============" << std::endl;
+	std::cout << "\n ============ WrongAnimal test ============\n" << std::endl;
 	const WrongAnimal* wrong = new WrongCat();
 	std::cout << wrong->getType() << " " << std::endl;
 	wrong->makeSound();
