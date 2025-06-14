@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:18:12 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/14 11:53:03 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:26:16 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,11 @@ int main()
 
 	std::cout << "\n=== Reference polymorphism test ===\n" << std::endl;
 
-	Dog dog;
-	const Animal& animalRef = dog;
-	animalRef.makeSound();
-
+	{
+		Dog dog;
+		const Animal& animalRef = dog;
+		animalRef.makeSound();
+	}
 
 	std::cout << "\n ============ WrongAnimal test ============\n" << std::endl;
 	const WrongAnimal* wrong = new WrongCat();

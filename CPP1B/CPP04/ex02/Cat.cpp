@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:15:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/13 12:46:50 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:18:59 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 Cat::Cat() : Animal(), brain(new Brain())
 {
 	type = "Cat";
-	//std::cout << "[Cat] Contstructor called" <<std::endl;
+	std::cout << "[Cat] Contstructor called" <<std::endl;
 }
 
 Cat::Cat(const Cat& obj) : Animal(obj), brain(new Brain(*obj.brain))
 {
-	//std::cout << "[Cat] copy constructor called" << obj.getType() << std::endl;
+	std::cout << "[Cat] copy constructor called" << obj.getType() << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& obj)
@@ -37,7 +37,7 @@ Cat& Cat::operator=(const Cat& obj)
 
 Cat::~Cat()
 {
-	//std::cout << "[Cat] destructor called" << std::endl;
+	std::cout << "[Cat] destructor called" << std::endl;
 	delete(brain);
 }
 
@@ -51,7 +51,7 @@ void Cat::setIdea(int index, const std::string& idea)
 	brain->setIdea(index, idea);
 }
 
-const std::string Cat::getIdea(int index) const
+std::string Cat::getIdea(int index) const
 {
 	return brain->getIdea(index);
 }

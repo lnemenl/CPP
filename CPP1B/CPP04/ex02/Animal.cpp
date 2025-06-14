@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:30:09 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/13 12:47:04 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:18:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 Animal::Animal() : type("Animal")
 {
-	//std::cout << "[Animal] default constructor called" << std::endl;
+	std::cout << "[Animal] default constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& obj) : type(obj.type)
 {
-	//std::cout << "[Animal] copy constructor called" << std::endl;
+	std::cout << "[Animal] copy constructor called" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& obj)
 {
-	//std::cout << "[Animal] copy assignment operator called" << obj.type << std::endl;
+	std::cout << "[Animal] copy assignment operator called" << obj.type << std::endl;
 	if (this != &obj)
 		type = obj.type;
 	return *this;
@@ -32,7 +32,7 @@ Animal& Animal::operator=(const Animal& obj)
 
 Animal::~Animal()
 {
-	//std::cout << "[Animal] destructor called" << std::endl;
+	std::cout << "[Animal] destructor called" << std::endl;
 }
 
 const std::string& Animal::getType() const

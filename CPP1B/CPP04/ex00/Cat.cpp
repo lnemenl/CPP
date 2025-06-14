@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 12:15:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/14 11:42:28 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:13:36 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 Cat::Cat() : Animal()
 {
 	type = "Cat";
-	//std::cout << "[Cat] Contstructor called" <<std::endl;
+	std::cout << "[Cat] Contstructor called" <<std::endl;
 }
 
 Cat::Cat(const Cat& obj) : Animal(obj)
 {
-	//std::cout << "[Cat] copy constructor called" << obj.getType() << std::endl;
+	std::cout << "[Cat] copy constructor called" << obj.getType() << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& obj)

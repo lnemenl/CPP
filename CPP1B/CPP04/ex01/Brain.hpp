@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 14:13:17 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/12 14:43:05 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:03:58 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Brain
 		~Brain();
 
 		void setIdea(int index, const std::string& idea);
-		const std::string getIdea(int index) const;
+		std::string getIdea(int index) const;
 };
 
 #endif

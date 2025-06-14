@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 18:30:09 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/14 11:42:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:13:24 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 Animal::Animal() : type("Animal")
 {
-	//std::cout << "[Animal] default constructor called" << std::endl;
+	std::cout << "[Animal] default constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& obj) : type(obj.type)
 {
-	//std::cout << "[Animal] copy constructor called" << std::endl;
+	std::cout << "[Animal] copy constructor called" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& obj)
 {
-	//std::cout << "[Animal] copy assignment operator called" << obj.type << std::endl;
+	std::cout << "[Animal] copy assignment operator called" << obj.type << std::endl;
 	if (this != &obj)
 		type = obj.type;
 	return *this;

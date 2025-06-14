@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:41:17 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/13 12:32:31 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/14 15:02:59 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Cat : public Animal
 
 		void makeSound() const override;
 		void setIdea(int index, const std::string& idea);
-		const std::string getIdea(int index) const;
+		std::string getIdea(int index) const;
 	
 };
 
