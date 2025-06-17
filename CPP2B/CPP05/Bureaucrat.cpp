@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/17 10:58:51 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:00:39 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
 	return "Grade too low";
 }
-
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& grade_)
 {
