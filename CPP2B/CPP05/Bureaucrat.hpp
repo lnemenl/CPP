@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:21 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/17 10:20:59 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:58:38 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 class Bureaucrat
 {
 	private:
-		const std::string name;
-		int grade;
+		const std::string _name; // Like in Python
+		int _grade; // Like in Python
 		
 	public:
 		Bureaucrat();
-		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat& obj);
 		Bureaucrat& operator=(const Bureaucrat& obj);
+		Bureaucrat(const std::string name, int grade);
 		~Bureaucrat();
 		
 		const std::string& getName() const;
-		void getGrade() const;
+		int getGrade() const;
 
 		void incrementGrade();
-		void DecrementGrade();
+		void decrementGrade();
 
 		class GradeTooHighException : public std::exception
 		{
@@ -48,7 +48,7 @@ class Bureaucrat
 		};
 		
 };
-	
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& grade_);
 
 #endif
