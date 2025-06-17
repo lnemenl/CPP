@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/17 11:00:39 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:04:12 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept
 	return "Grade too low";
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& grade_)
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& k)
 {
-	os << grade_.getName() << " , bureaucrat grade " << grade_.getGrade();
+	os << k.getName() << " , bureaucrat grade " << k.getGrade();
 }

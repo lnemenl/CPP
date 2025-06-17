@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:21 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/17 11:00:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/17 11:04:14 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ class Bureaucrat
 		
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& grade_);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& k);
 
 #endif
