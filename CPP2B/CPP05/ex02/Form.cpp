@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:54:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 11:37:48 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 13:08:07 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,22 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
 	_signed = 1;
 }
 
+const char* Form::GradeTooHighException::what() const noexcept
+{
+	return "Grade too high";
+}
+
+const char* Form::GradeTooLowException::what() const noexcept
+{
+	return "Grade too low";
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& form)
+{
+	if (bureaucrat.signed() == 0)
+		os << "Form " << bureaucrat.getName() << " has not been signed" << std::endl;
+	else
+		os << "Form " << bureaucrat.getName() << " has been signed" << std::endl;
+	os << "Grade to sign the form " << bureaucrat.getGradeToSign() << std::endl;
+	os << "Grade to execute the form " << bureaucrat.getGradeToExecute() << std::endl;
+}
