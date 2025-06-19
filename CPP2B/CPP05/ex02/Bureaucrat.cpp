@@ -6,20 +6,20 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 10:51:16 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:01:23 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat () : _name(), _grade()
+Bureaucrat::Bureaucrat() : _name(), _grade()
 {
-	//std::cout << "[Bureaucrat] Default constructor called" << std::endl;
+	//std::cout << "[Bureaucrat] constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name), _grade(obj._grade)
 {
-	//std::cout << "[Bureaucrat] Copy constructor called" << std::endl;
+	//std::cout << "[Bureaucrat] copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)

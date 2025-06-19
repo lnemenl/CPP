@@ -6,18 +6,22 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:23:28 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 10:51:52 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:15:21 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
+#include <iostream>
+#include <exception>
+
+class Bureaucrat;
 class Form
 {
 	private:
 		const std::string _name;
-		bool _signed = 0;
+		bool _signed;
 		const int _gradeToSign;
 		const int _gradeToExecute;
 

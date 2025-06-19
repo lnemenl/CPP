@@ -6,13 +6,13 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 10:51:01 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 10:59:21 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat () : _name(), _grade()
+Bureaucrat::Bureaucrat() : _name(), _grade()
 {
 	//std::cout << "[Bureaucrat] Default constructor called" << std::endl;
 }
