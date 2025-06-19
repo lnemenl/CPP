@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:54:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 11:27:23 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:37:48 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,12 @@ int Form::getGradeToExecute() const
 bool Form::signed() const
 {
 	return _signed;
+}
+
+void Form::beSigned(const Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() >= _gradeToSign)
+		throw GradeTooLowException();
+	_signed = 1;
 }
 
