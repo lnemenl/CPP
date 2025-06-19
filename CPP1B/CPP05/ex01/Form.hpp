@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:23:28 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 13:33:19 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 14:40:56 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <iostream>
 #include <exception>
+#include <Bureaucrat.hpp>
 
-class Bureaucrat;
 class Form
 {
 	private:
 		const std::string _name;
-		bool _signed;
+		bool _isSigned;
 		const int _gradeToSign;
 		const int _gradeToExecute;
 
@@ -29,15 +29,15 @@ class Form
 		Form();
 		Form(const Form& obj);
 		Form& operator=(const Form& obj);
-		Form(const std::string& name, int gradeToSign, int gradeToExecute);
 		~Form();
-
+		
+		explicit Form(const std::string& name, int gradeToSign, int gradeToExecute);
 		const std::string& getName() const;
+		bool isSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
-		bool signed() const;
 
-		void beSigned(const Bureaucrat& bureaucrat);
+		void beSigned(const Bureaucrat& b);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -52,7 +52,7 @@ class Form
 		}
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const Form& f);
 
 
 #endif
