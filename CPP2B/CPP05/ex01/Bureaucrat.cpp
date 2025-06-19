@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/17 13:45:26 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/19 10:51:01 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Bureaucrat::~Bureaucrat()
 	//std::cout << "[Bureaucrat] desctructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -77,8 +77,8 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept
 	return "Grade too low";
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& k)
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
-	os << k.getName() << ", bureaucrat grade " << k.getGrade();
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return os;
 }
