@@ -6,11 +6,11 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 12:01:53 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:24:16 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp" // Include the header for Bureaucrat class
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("unnamed"), _grade(150)
 {

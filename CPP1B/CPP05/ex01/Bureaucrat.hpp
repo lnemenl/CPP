@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:21 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 12:36:39 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:33:25 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
-class Form; //Forward declaration: allows to use Form* or Form& without including Form.hpp
-
+class Form;
 // Project Rule: Bureaucrat must have a constant name and a grade in [1, 150].
 class Bureaucrat
 {
