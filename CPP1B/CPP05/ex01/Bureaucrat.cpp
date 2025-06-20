@@ -6,90 +6,83 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 15:03:05 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:01:53 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Bureaucrat.hpp" // Include the header for Bureaucrat class
 
 Bureaucrat::Bureaucrat() : _name("unnamed"), _grade(150)
 {
-	//std::cout << "[Bureaucrat] constructor called" << std::endl;
-}
-
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name), _grade(obj._grade)
-{
-	//std::cout << "[Bureaucrat] copy constructor called" << std::endl;
+    // _name is const, so it must be initialized in the initializer list
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
-	if (this != &obj)
-		_grade = obj._grade;
-	return *this;
+    if (this != &obj)
+        _grade = obj._grade;
+    return *this;
 }
 
-Bureaucrat::~Bureaucrat()
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
-	//std::cout << "[Bureaucrat] desctructor called" << std::endl;
-}
-
-Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
-{
-	if (grade < 1) throw GradeTooHighException();
-	if (grade > 150) throw GradeTooLowException();
-	_grade = grade;
+    if (grade < 1) throw GradeTooHighException();
+    if (grade > 150) throw GradeTooLowException();
+    _grade = grade;
 }
 
 const std::string& Bureaucrat::getName() const
 {
-	return _name;
+    return _name;
 }
 
 int Bureaucrat::getGrade() const
 {
-	return _grade;
+    return _grade;
 }
 
 void Bureaucrat::incrementGrade()
 {
-	if (_grade < 1)
-		throw GradeTooHighException();
-	_grade--;
+    --_grade;
+    if (_grade < 1)
+        throw GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade > 150)
-		throw GradeTooLowException();
-	_grade++;
+    ++_grade;
+    if (_grade > 150)
+        throw GradeTooLowException();
 }
 
+
+//Passing Form by reference to allow modification and avoid copy
 void Bureaucrat::signForm(Form& form)
 {
-	try
-	{
-		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName() << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << _name << "could not sign " << form.getName() << " because " << e.what() << std::endl;
-	}
+    try
+    {
+        form.beSigned(*this); // Pass this Bureaucrat object to the form (as a reference)
+        // *this dereferences the pointer to the current object, giving a reference
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << _name << " could not sign " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	return "Grade too high";
+    return "Grade too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	return "Grade too low";
+    return "Grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
-	return os;
+    os << b.getName() << ", bureaucrat grade " << b.getGrade();
+    return os;
 }
