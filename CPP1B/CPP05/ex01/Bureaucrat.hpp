@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:21 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 12:01:59 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:36:39 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat
 
         //const reference for string to avoid copy, const for method to promise no modification.
         const std::string& getName() const;
-        int getGrade() const;
+        int getGrade() const; //The const at the end means this function does NOT modify any member variables of the object AND I can call this function on const objects.
 
         //These methods change the grade, so not const.
         void incrementGrade();
