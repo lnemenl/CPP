@@ -6,11 +6,11 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/16 11:29:53 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/06/20 14:31:25 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/06/24 08:55:21 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= ex01
+NAME				= ex02
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror
 SRC_FILES			= main.cpp Bureaucrat.cpp Form.cpp
