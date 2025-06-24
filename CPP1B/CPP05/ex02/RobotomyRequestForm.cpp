@@ -6,7 +6,9 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:02:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 12:02:14 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:40:10 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "RobotomyRequestForm.hpp"
 
