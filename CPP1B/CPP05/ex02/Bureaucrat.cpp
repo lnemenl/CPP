@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 16:24:16 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:57:39 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void Bureaucrat::decrementGrade()
 
 
 //Passing Form by reference to allow modification and avoid copy
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(Form& form) const
 {
     try
     {
@@ -68,6 +68,19 @@ void Bureaucrat::signForm(Form& form)
     catch (const std::exception& e)
     {
         std::cout << _name << " could not sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const& form) const 
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 

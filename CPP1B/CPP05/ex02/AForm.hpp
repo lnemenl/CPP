@@ -6,19 +6,19 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:23:28 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 17:14:03 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:17:48 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include <exception>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class Form
+class AForm
 {
     private:
         //const members must be initialized in the constructor's initializer list.
@@ -28,12 +28,12 @@ class Form
         const int	_gradeToExecute;
 
     public:
-        Form();
-        Form(const Form& obj) = default;
-        Form& operator=(const Form& obj);
+        AForm();
+        AForm(const Form& obj) = default;
+        AForm& operator=(const Form& obj);
         virtual ~Form();
         //Use explicit to prevent implicit conversions.
-        explicit Form(const std::string& name, int gradeToSign, int gradeToExecute);
+        explicit AForm(const std::string& name, int gradeToSign, int gradeToExecute);
 
         //Use const reference for string to avoid copy, const for method to promise no modification.
         const std::string& getName() const;
@@ -57,6 +57,16 @@ class Form
             public:
                 const char* what() const noexcept override;
         };
+        
+        class FormNotSignedException : public std::exception
+        {
+            public: 
+                const char* what() const noexcept override;
+        }
+        
+        //Helper for derived execute functions
+        protected:
+            void checkExecution(const Bureaucrat& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& f);

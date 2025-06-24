@@ -6,26 +6,28 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:54:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 16:47:58 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/24 10:52:25 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : _name("unnamed"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
+AForm::AForm() : _name("unnamed"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {
     //Setting values to 1 and only grade 1 bureaucrats can sign/execute (valid, but restrictive).
     // 150 is the most permissive (lowest grade), so any bureaucrat can sign/execute.
 }
 
-Form& Form::operator=(const Form& obj)
+AForm& AForm::operator=(const AForm& obj)
 {
     if (this != &obj)
         _isSigned = obj._isSigned;
     return *this;
 }
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
+AForm::~AForm() {}
+
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
     : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
     if (gradeToSign < 1 || gradeToExecute < 1) throw GradeTooHighException();
@@ -33,47 +35,73 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
 }
 
 //Getter for name: returns a const reference to the name (no copy, not modifiable)
-const std::string& Form::getName() const
+const std::string& AForm::getName() const
 {
     return _name;
 }
 
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
     return _gradeToSign;
 }
 
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
     return _gradeToExecute;
 }
 
-bool Form::isSigned() const
+bool AForm::isSigned() const
 {
     return _isSigned;
 }
 
 // C++ Rule: Pass by const reference for efficiency and safety (no copy, not modified)
-void Form::beSigned(const Bureaucrat& b)
+void AForm::beSigned(const Bureaucrat& b)
 {
     if (b.getGrade() > _gradeToSign) throw GradeTooLowException();
     _isSigned = true;
 }
 
-const char* Form::GradeTooHighException::what() const noexcept
+void AForm::checkExecution(const Bureaucrat& executor) const
+{
+    if (!_isSigned) throw FormNotSignedException();
+    if (executor.getGrade() > _gradeToExecute) throw GradeTooLowException();
+}
+
+const char* AForm::GradeTooHighException::what() const noexcept
 {
     return "Grade too high";
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* AForm::GradeTooLowException::what() const noexcept
 {
     return "Grade too low";
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& f)
+const char* AForm::FormNotSignedException::what() const noexcept
+{
+    return "Form not signed";
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& f)
 {
     os << "Form '" << f.getName() << "', signed: " << (f.isSigned() ? "yes" : "no")
        << ", grade to sign: " << f.getGradeToSign()
        << ", grade to execute: " << f.getGradeToExecute();
     return os;
 }
+
+
+/*
+namespace std {
+  class exception {
+  public:
+    exception() noexcept;
+    exception(const exception&) noexcept;
+    exception& operator=(const exception&) noexcept;
+    virtual ~exception();
+
+    virtual const char* what() const noexcept; //this function will never throw an exception.
+  };
+}
+*/
