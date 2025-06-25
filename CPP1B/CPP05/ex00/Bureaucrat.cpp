@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/19 10:59:21 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:47:54 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name), _grade(obj._gr
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
 	if (this != &obj)
+	{
+		// _name is const and cannot be assigned after construction
 		_grade = obj._grade;
+	}
 	return *this;
 }
 
@@ -55,14 +58,14 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-	if (_grade < 1)
+	if (_grade - 1 < 1)
 		throw GradeTooHighException();
 	_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade > 150)
+	if (_grade + 1 > 150)
 		throw GradeTooLowException();
 	_grade++;
 }

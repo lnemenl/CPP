@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:54:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 11:54:12 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 11:03:55 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@ Form::Form() : _name("unnamed"), _isSigned(false), _gradeToSign(150), _gradeToEx
 {
     //Setting values to 1 and only grade 1 bureaucrats can sign/execute (valid, but restrictive).
     // 150 is the most permissive (lowest grade), so any bureaucrat can sign/execute.
-}
-
-Form& Form::operator=(const Form& obj)
-{
-    if (this != &obj)
-        _isSigned = obj._isSigned;
-    return *this;
 }
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
@@ -53,7 +46,6 @@ bool Form::isSigned() const
     return _isSigned;
 }
 
-// C++ Rule: Pass by const reference for efficiency and safety (no copy, not modified)
 void Form::beSigned(const Bureaucrat& b)
 {
     if (b.getGrade() > _gradeToSign) throw GradeTooLowException();

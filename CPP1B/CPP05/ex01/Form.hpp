@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:23:28 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 16:32:52 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:53:21 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <exception>
-#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 class Form
@@ -30,19 +29,19 @@ class Form
     public:
         Form();
         Form(const Form& obj) = default;
-        Form& operator=(const Form& obj);
+        Form& operator=(const Form& obj) = delete; // Assignment is not allowed due to const members
         ~Form() = default;
         //Use explicit to prevent implicit conversions.
         explicit Form(const std::string& name, int gradeToSign, int gradeToExecute);
 
-        //Use const reference for string to avoid copy, const for method to promise no modification.
+        // Getters for private attributes
         const std::string& getName() const;
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
+
         void beSigned(const Bureaucrat& b);
 
-        //Inherit from std::exception and override what().
         class GradeTooHighException : public std::exception
         {
             public:

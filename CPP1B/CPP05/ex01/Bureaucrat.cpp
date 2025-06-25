@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 16:24:16 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 11:00:32 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 Bureaucrat::Bureaucrat() : _name("unnamed"), _grade(150)
 {
     // _name is const, so it must be initialized in the initializer list
-}
-
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
-{
-    if (this != &obj)
-        _grade = obj._grade;
-    return *this;
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
@@ -43,16 +36,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    --_grade;
-    if (_grade < 1)
+    if (_grade - 1 < 1)
         throw GradeTooHighException();
+    --_grade;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    ++_grade;
-    if (_grade > 150)
+    if (_grade + 1 > 150)
         throw GradeTooLowException();
+    ++_grade;
 }
 
 
