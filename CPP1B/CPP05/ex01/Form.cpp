@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:54:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/25 11:03:55 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:10:23 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,58 @@
 
 Form::Form() : _name("unnamed"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {
-    //Setting values to 1 and only grade 1 bureaucrats can sign/execute (valid, but restrictive).
-    // 150 is the most permissive (lowest grade), so any bureaucrat can sign/execute.
+	//Setting values to 1 and only grade 1 bureaucrats can sign/execute (valid, but restrictive).
+	// 150 is the most permissive (lowest grade), so any bureaucrat can sign/execute.
 }
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
-    : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-    if (gradeToSign < 1 || gradeToExecute < 1) throw GradeTooHighException();
-    if (gradeToSign > 150 || gradeToExecute > 150) throw GradeTooLowException();
+	if (gradeToSign < 1 || gradeToExecute < 1) throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute > 150) throw GradeTooLowException();
 }
 
 //Getter for name: returns a const reference to the name (no copy, not modifiable)
 const std::string& Form::getName() const
 {
-    return _name;
+	return _name;
 }
 
 int Form::getGradeToSign() const
 {
-    return _gradeToSign;
+	return _gradeToSign;
 }
 
 int Form::getGradeToExecute() const
 {
-    return _gradeToExecute;
+	return _gradeToExecute;
 }
 
 bool Form::isSigned() const
 {
-    return _isSigned;
+	return _isSigned;
 }
 
 void Form::beSigned(const Bureaucrat& b)
 {
-    if (b.getGrade() > _gradeToSign) throw GradeTooLowException();
-    _isSigned = true;
+	if (b.getGrade() > _gradeToSign) throw GradeTooLowException();
+	_isSigned = true;
 }
 
 const char* Form::GradeTooHighException::what() const noexcept
 {
-    return "Grade too high";
+	return "Grade too high";
 }
 
 const char* Form::GradeTooLowException::what() const noexcept
 {
-    return "Grade too low";
+	return "Grade too low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f)
 {
-    os << "Form '" << f.getName() << "', signed: " << (f.isSigned() ? "yes" : "no")
-       << ", grade to sign: " << f.getGradeToSign()
-       << ", grade to execute: " << f.getGradeToExecute();
-    return os;
+	os << "Form '" << f.getName() << "', signed: " << (f.isSigned() ? "yes" : "no")
+	   << ", grade to sign: " << f.getGradeToSign()
+	   << ", grade to execute: " << f.getGradeToExecute();
+	return os;
 }

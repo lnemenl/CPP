@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:02:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 15:44:31 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 12:40:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 
     std::cout << "Drilling noises" << std::endl;
 
-    // Setting the starting poing for sequence only the first time when execute() is called, so that not to get the same sequence every run.
-    // Creates a variable that is shared across all calls to
     static bool seeded = false;
     if (!seeded)
     {
-        std::srand(std::time(0));
+        std::srand(std::time(0)); // Seeding the value that changes(time is seconds) to get different sequence each run
         seeded = true;
     }
     
@@ -37,3 +35,6 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const
     else
         std::cout << "Robotomy of " << _target << " faield." <<std::endl;
 }
+
+//std::srand() seeds the random number generator.
+//std::rand() is a C standard library function that returns a pseudo-random integer.

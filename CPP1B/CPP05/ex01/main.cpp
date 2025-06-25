@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:32 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 14:31:12 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:10:50 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,61 +15,66 @@
 
 int main()
 {
-    try
-    {
-        Bureaucrat john("Captain Jack Sparrow", 2);
-        std::cout << john << std::endl;
-        john.incrementGrade();
-        std::cout << john << std::endl;
-        john.incrementGrade();
-        john.incrementGrade();
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Caught exception: " << e.what() << '\n';
-    }
+	std::cout << "=== Bureaucrat Grade Boundary Tests ===" << std::endl;
+	try
+	{
+		Bureaucrat high("High", 1);
+		std::cout << high << std::endl;
+		std::cout << "Attempting to increment grade (should throw):" << std::endl;
+		high.incrementGrade();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Caught exception: " << e.what() << std::endl;
+	}
 
-    try
-    {
-        Bureaucrat jane("Captain Nemo", 149);
-        std::cout << jane << std::endl;
-        jane.decrementGrade();
-        std::cout << jane << std::endl;
-        jane.decrementGrade();
-        jane.decrementGrade();
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Caught exception: " << e.what() << '\n';
-    }
+	try
+	{
+		Bureaucrat low("Low", 150);
+		std::cout << low << std::endl;
+		std::cout << "Attempting to decrement grade (should throw):" << std::endl;
+		low.decrementGrade();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Caught exception: " << e.what() << std::endl;
+	}
 
-    // try
-    // {
-    //     Bureaucrat error("Error", 200);
-    // }
-    // catch (const std::exception& e)
-    // {
-    //     std::cerr << "Caught exception: " << e.what() << '\n';
-    // }
+	std::cout << "\n=== Form Creation Exception Test ===" << std::endl;
+	try
+	{
+		std::cout << "Attempting to create invalid form (should throw):" << std::endl;
+		Form invalid("InvalidForm", 0, 151);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Caught exception: " << e.what() << std::endl;
+	}
 
-    // return 0;
+	std::cout << "\n=== Form Signing Tests ===" << std::endl;
+	Bureaucrat ONE("ONE", 50);
+	Bureaucrat TWO("TWO", 140);
+	Form formA("FormA", 100, 50);
+	Form formB("FormB", 130, 50);
 
-    // Test Bureaucrat signing Form
-    Bureaucrat alice("Alice", 50);
-    Bureaucrat bob("Bob", 140);
-    Form formA("FormA", 100, 50);
-    Form formB("FormB", 130, 50);
+	std::cout << ONE << std::endl;
+	std::cout << TWO << std::endl;
+	std::cout << formA << std::endl;
+	std::cout << formB << std::endl;
 
-    std::cout << "\nForm Signing Tests" << std::endl;
-    std::cout << alice << std::endl;
-    std::cout << bob << std::endl;
-    std::cout << formA << std::endl;
-    std::cout << formB << std::endl;
+	std::cout << "\nONE tries to sign FormA (should succeed):" << std::endl;
+	ONE.signForm(formA);
 
-    alice.signForm(formA); //should succeed
-    bob.signForm(formA);   //should fail (grade too low)
-    bob.signForm(formB);   //should succeed
-    std::cout << formA << std::endl;
-    std::cout << formB << std::endl;
+	std::cout << "\nTWO tries to sign FormA (should fail):" << std::endl;
+	TWO.signForm(formA);
+
+	std::cout << "\nTWO tries to sign FormB (should succeed):" << std::endl;
+	TWO.signForm(formB);
+
+	std::cout << "\nFinal form statuses:" << std::endl;
+	std::cout << formA << std::endl;
+	std::cout << formB << std::endl;
+
+	return 0;
 }
 

@@ -6,15 +6,21 @@
 #    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/16 11:29:53 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/06/24 08:55:21 by rkhakimu         ###   ########.fr        #
+#    Updated: 2025/06/25 17:11:32 by rkhakimu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= ex02
-CC					= c++
-CFLAGS				= -Wall -Wextra -Werror
-SRC_FILES			= main.cpp Bureaucrat.cpp Form.cpp
-OBJ_FILES			= $(SRC_FILES:.cpp=.o)
+NAME				= 	ex02
+CC					= 	c++
+CFLAGS				= 	-Wall -Wextra -Werror
+SRC_FILES			=	main.cpp \
+						Bureaucrat.cpp \
+						AForm.cpp \
+						PresidentialPardonForm.cpp \
+						RobotomyRequestForm.cpp \
+						ShrubberyCreationForm.cpp
+						
+OBJ_FILES			= 	$(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re
 

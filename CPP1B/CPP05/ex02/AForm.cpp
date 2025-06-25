@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:54:13 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 10:52:25 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 11:41:00 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@ AForm::AForm() : _name("unnamed"), _isSigned(false), _gradeToSign(150), _gradeTo
 {
     //Setting values to 1 and only grade 1 bureaucrats can sign/execute (valid, but restrictive).
     // 150 is the most permissive (lowest grade), so any bureaucrat can sign/execute.
-}
-
-AForm& AForm::operator=(const AForm& obj)
-{
-    if (this != &obj)
-        _isSigned = obj._isSigned;
-    return *this;
 }
 
 AForm::~AForm() {}

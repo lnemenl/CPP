@@ -6,70 +6,68 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:32 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/20 14:31:12 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:28:11 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-    try
-    {
-        Bureaucrat john("Captain Jack Sparrow", 2);
-        std::cout << john << std::endl;
-        john.incrementGrade();
-        std::cout << john << std::endl;
-        john.incrementGrade();
-        john.incrementGrade();
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Caught exception: " << e.what() << '\n';
-    }
+    std::cout << "=== Bureaucrat and Form Demonstration ===\n" << std::endl;
 
     try
-    {
-        Bureaucrat jane("Captain Nemo", 149);
-        std::cout << jane << std::endl;
-        jane.decrementGrade();
-        std::cout << jane << std::endl;
-        jane.decrementGrade();
-        jane.decrementGrade();
+	{
+        Bureaucrat ONE("ONE", 1);
+        Bureaucrat TWO("TWO", 140);
+        Bureaucrat THREE("THREE", 50);
+
+        ShrubberyCreationForm shrub("garden");
+        RobotomyRequestForm robot("RD2D");
+        PresidentialPardonForm pardon("LORD BECKETT");
+
+        std::cout << "\n--- TWO tries to sign and execute ShrubberyCreationForm ---" << std::endl;
+        std::cout << "TWO tries to sign (should succeed):" << std::endl;
+        TWO.signForm(shrub);
+        std::cout << "TWO tries to execute (should fail: grade too low):" << std::endl;
+        TWO.executeForm(shrub);
+
+        std::cout << "\n--- ONE signs and executes RobotomyRequestForm ---" << std::endl;
+        ONE.signForm(robot);
+		std::cout << "\n--- ONE signs and executes RobotomyRequestForm multiple times (should see random results) ---" << std::endl;
+		ONE.signForm(robot);
+		for (int i = 0; i < 5; ++i)
+		{
+    		std::cout << "Attempt " << (i + 1) << ": ";
+    		ONE.executeForm(robot);
+		}
+        ONE.executeForm(robot);
+
+        std::cout << "\n--- ONE signs and executes PresidentialPardonForm ---" << std::endl;
+        ONE.signForm(pardon);
+        ONE.executeForm(pardon);
+
+        std::cout << "\n--- THREE tries to sign and execute RobotomyRequestForm ---" << std::endl;
+        THREE.signForm(robot);   // Should fail
+        THREE.executeForm(robot);
+
+        std::cout << "\n--- ONE executes ShrubberyCreationForm (should succeed) ---" << std::endl;
+        ONE.executeForm(shrub);
+
+        std::cout << "\n--- ONE tries to execute an unsigned ShrubberyCreationForm ---" << std::endl;
+        ShrubberyCreationForm notSigned("yard");
+        ONE.executeForm(notSigned);
+
     }
-    catch (const std::exception& e)
-    {
-        std::cerr << "Caught exception: " << e.what() << '\n';
+	catch (const std::exception& e)
+	{
+        std::cerr << "Exception caught in main: " << e.what() << std::endl;
     }
 
-    // try
-    // {
-    //     Bureaucrat error("Error", 200);
-    // }
-    // catch (const std::exception& e)
-    // {
-    //     std::cerr << "Caught exception: " << e.what() << '\n';
-    // }
-
-    // return 0;
-
-    // Test Bureaucrat signing Form
-    Bureaucrat alice("Alice", 50);
-    Bureaucrat bob("Bob", 140);
-    Form formA("FormA", 100, 50);
-    Form formB("FormB", 130, 50);
-
-    std::cout << "\nForm Signing Tests" << std::endl;
-    std::cout << alice << std::endl;
-    std::cout << bob << std::endl;
-    std::cout << formA << std::endl;
-    std::cout << formB << std::endl;
-
-    alice.signForm(formA); //should succeed
-    bob.signForm(formA);   //should fail (grade too low)
-    bob.signForm(formB);   //should succeed
-    std::cout << formA << std::endl;
-    std::cout << formB << std::endl;
+    std::cout << "\n=== End of Demonstration ===" << std::endl;
+    return 0;
 }
-

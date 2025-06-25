@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:21 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 11:59:29 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:15:30 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
-// Project Rule: Bureaucrat must have a constant name and a grade in [1, 150].
+class AForm;
 class Bureaucrat
 {
     private:
@@ -28,7 +27,7 @@ class Bureaucrat
     public:
         Bureaucrat();
         Bureaucrat(const Bureaucrat& obj) = default;
-        Bureaucrat& operator=(const Bureaucrat& obj);
+        Bureaucrat& operator=(const Bureaucrat& obj) = delete;
         ~Bureaucrat() = default;
         // Parameterized constructor
         explicit Bureaucrat(const std::string& name, int grade);
@@ -41,7 +40,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
 
-        void signForm(Form& form) const; // Pass by reference to modify the Form
+        void signForm(AForm& form) const; // Pass by reference to modify the Form
 
         // Exceptions
         class GradeTooHighException : public std::exception

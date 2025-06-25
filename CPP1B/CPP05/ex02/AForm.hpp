@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 10:23:28 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 09:17:48 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:17:34 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class AForm
 
     public:
         AForm();
-        AForm(const Form& obj) = default;
-        AForm& operator=(const Form& obj);
-        virtual ~Form();
+        AForm(const AForm& obj) = default;
+        AForm& operator=(const AForm& obj) = delete; // Cannot be assigned after construction (assignment is forbidden (const members))
+        virtual ~AForm();
         //Use explicit to prevent implicit conversions.
         explicit AForm(const std::string& name, int gradeToSign, int gradeToExecute);
 
@@ -43,7 +43,7 @@ class AForm
         void beSigned(const Bureaucrat& b);
 
         //To make this class abstract
-        virtual void execute(Bureaucrat const& executor) = 0;
+        virtual void execute(Bureaucrat const& executor) const = 0;
 
         //Inherit from std::exception and override what().
         class GradeTooHighException : public std::exception
@@ -62,13 +62,13 @@ class AForm
         {
             public: 
                 const char* what() const noexcept override;
-        }
+        };
         
         //Helper for derived execute functions
         protected:
             void checkExecution(const Bureaucrat& executor) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

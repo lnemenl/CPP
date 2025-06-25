@@ -6,13 +6,14 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:02:47 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 15:31:39 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:51:23 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include <fstream>
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm
