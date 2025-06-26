@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:11 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/25 17:09:54 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 11:18:35 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void Bureaucrat::decrementGrade()
 }
 
 
-//Passing Form by reference to allow modification and avoid copy
+//Passing Form by reference (like passing the real form(fork))
 void Bureaucrat::signForm(Form& form)
 {
 	try

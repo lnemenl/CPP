@@ -6,12 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:01:52 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 13:43:39 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:34:05 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 #include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm

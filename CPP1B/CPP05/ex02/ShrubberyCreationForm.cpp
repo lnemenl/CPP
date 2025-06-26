@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:02:35 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/25 17:15:55 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 12:26:44 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 	checkExecution(executor);
 	std::string filename = _target + "_shrubbery";
 	
-	std::ofstream os(filename.c_str());
+	std::ofstream os(filename.c_str()); //Lets writing data to files. And c_str() converts std::string to const char* that ofstream expects.
 	if (os.fail())
 	{
 		std::cerr << "Error: could not open the file " << filename << std::endl;
@@ -55,3 +55,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 	)";
 	os.close();
 }
+
+/*
+By default std::ofstream opens the file in truncate mode (std::ios::out).
+Truncate mode means:
+If the file already exists, its contents are deleted (emptied) as soon as the stream is opened.
+If the file does not exist, it is created.
+*/

@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:21 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/25 17:08:53 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:32:19 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class Bureaucrat
 {
 	private:
-		const std::string _name; // Like in Python
-		int _grade; // Like in Python
+		const std::string _name;
+		int _grade;
 		
 	public:
 		Bureaucrat();

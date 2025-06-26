@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:32 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/25 17:28:11 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 12:27:25 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
     try
 	{
         Bureaucrat ONE("ONE", 1);
-        Bureaucrat TWO("TWO", 140);
+        Bureaucrat TWO("TWO", 137); //140
         Bureaucrat THREE("THREE", 50);
 
         ShrubberyCreationForm shrub("garden");
@@ -46,6 +46,14 @@ int main()
     		ONE.executeForm(robot);
 		}
         ONE.executeForm(robot);
+
+        // std::cout << "\n--- TWO signs and executes RobotomyRequestForm multiple times (should see random results) ---" << std::endl;
+		// TWO.signForm(shrub);
+		// for (int i = 0; i < 5; ++i)
+		// {
+    	// 	std::cout << "Attempt " << (i + 1) << ": ";
+    	// 	TWO.executeForm(shrub);
+		// }
 
         std::cout << "\n--- ONE signs and executes PresidentialPardonForm ---" << std::endl;
         ONE.signForm(pardon);

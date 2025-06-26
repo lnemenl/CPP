@@ -6,12 +6,12 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:02:23 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/24 14:38:57 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:34:11 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm

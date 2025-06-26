@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 11:29:32 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/25 17:10:50 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 11:33:12 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int main()
 	std::cout << "=== Bureaucrat Grade Boundary Tests ===" << std::endl;
 	try
 	{
-		Bureaucrat high("High", 1);
-		std::cout << high << std::endl;
+		Bureaucrat ONE("ONE", 1);
+		std::cout << ONE << std::endl;
 		std::cout << "Attempting to increment grade (should throw):" << std::endl;
-		high.incrementGrade();
+		ONE.incrementGrade();
 	}
 	catch (const std::exception& e)
 	{
@@ -30,10 +30,10 @@ int main()
 
 	try
 	{
-		Bureaucrat low("Low", 150);
-		std::cout << low << std::endl;
+		Bureaucrat TWO("TWO", 150);
+		std::cout << TWO << std::endl;
 		std::cout << "Attempting to decrement grade (should throw):" << std::endl;
-		low.decrementGrade();
+		TWO.decrementGrade();
 	}
 	catch (const std::exception& e)
 	{
