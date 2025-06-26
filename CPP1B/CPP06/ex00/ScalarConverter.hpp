@@ -6,15 +6,14 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:03:05 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/26 15:16:08 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:33:09 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
-
+#pragma once
 #include <iostream>
 #include <limits>
+#include <cmath>
 
 class ScalarConverter
 {
@@ -22,9 +21,13 @@ class ScalarConverter
 		ScalarConverter() = delete;
 		ScalarConverter(const ScalarConverter&) = delete;
 		ScalarConverter& operator=(const ScalarConverter&) = delete;
-		~ScalarConverter() = delete;
+		~ScalarConverter() = default;
 		
 		static void convert(const std::string& input);
 };
 
-#endif
+// A static method in a class is a function that:
+// Belongs to the class itself, not to any specific object.
+// Can be called without creating an object of the class.
+// Cannot access non-static members (variables or methods) of the class directly,
+// because it does not have a this pointer
