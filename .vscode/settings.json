@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "limits": "cpp",
+        "cctype": "cpp",
+        "string_view": "cpp",
+        "charconv": "cpp"
+    }
+}
