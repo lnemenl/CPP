@@ -6,7 +6,7 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:03:17 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/07/14 22:24:42 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/07/15 16:53:33 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,73 @@ void	ScalarConverter::toInt(std::string_view literal, ConversionResult& result)
 	}
 }
 
+
+void ScalarConverter::toFloat(std::string_view literal, ConversionResult& result)
+{
+	if(literal.back() == 'f') literal.remove_suffix(1);
+	float value;
+	auto[ptr, ec] = std::from_chars(literal.data(), literal.data() + literal.size(), value);
+	if (ec == std::errc() && ptr == literal.data() + literal.size())
+	{
+		result.floatValue = value;
+		result.isIntValid = value >= 	std::numeric_limits<int>::min() &&
+							value <= 	std::numeric_limits<int>::max() &&
+										!std::isnan(value) && !std::isinf(value);
+	}
+}
+
+void ScalarConverter::toDouble(std::string_view literal, ConversionResult& result)
+{
+	double value;
+	auto[ptr, ec] = std::from_chars(literal.data(), literal.data() + literal.size(), value);
+	if (ec == std::errc() && ptr == literal.data() + literal.size())
+	{
+		result.doubleValue = value;
+		result.isIntValid = value >= std::numeric_limits<int>::min() &&
+							value <= std::numeric_limits<int>::max() &&
+							!std::isnan(value) && !std::isinf(value);	
+	}
+}
+
+void ScalarConverter::toPseudo(std::string_view literal, ConversionResult& result)
+{
+	result.isPseudo = true;
+	result.pseudoLiteral = std::string(literal);
+}
+
+void ScalarConverter::toPseudo(std::string_view literal, ConversionResult& result)
+{
+	result.isPseudo = true;
+	result.pseudoLiteral = std::string(literal);
+	if (literal == "-inf" || literal == "-inff")
+		result.doubleValue = -std::numeric_limits<double>::infinity();
+	else if (literal == "+inf" || literal == "+inff")
+		result.doubleValue = std::numeric_limits<double>::infinity();
+	else
+		result.doubleValue = std::numeric_limits<double>::quiet_NaN();
+}
+
+void ScalarConverter::toCharFromInt(const ConversionResult& src, ConversionResult& dest)
+{
+	dest.charValue = static_cast<char>(src.intValue);
+	dest.isCharValid = src.isIntValid && src.intValue >= 0 && src.intValue <= 127 && std::isprint(src.intValue);
+}
+
+void ScalarConverter::toCharFromFloat(const ConversionResult& src, ConversionResult& dest)
+{
+	dest.charValue = static_cast<char>(src.floatValue);
+	dest.isCharValid = src.isIntValid && src.floatValue >= 0 && src.floatValue <= 127 && std::isprint(static_cast<int>(src.floatValue));
+}
+
+void ScalarConverter::toCharFromDouble(const ConversionResult& src, ConversionResult& dest)
+{
+	dest.charValue = static_cast<char>(src.doubleValue);
+	dest.isCharValid = src.isIntValid && src.doubleValue >= 0 && src.doubleValue <= 127 && std::isprint(static_cast<int>(src.doubleValue));
+}
+
+void ScalarConverter::toIntFromChar(const ConversionResult& src, ConversionResult& dest)
+{
+	dest.intValue = static_cast<int>(src.charValue);
+	dest.isIntValid = src.isCharValid;
+}
 
