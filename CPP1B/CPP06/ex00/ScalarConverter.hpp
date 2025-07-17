@@ -6,16 +6,18 @@
 /*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:03:05 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/07/14 20:15:47 by rkhakimu         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:23:36 by rkhakimu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ScalarConverter.hpp"
-#include <iostream>
+#include <string>
 #include <string_view>
+#include <iostream>
 #include <limits>
+#include <iomanip>
+
 
 class ScalarConverter
 {
@@ -82,8 +84,8 @@ class ScalarConverter
     	static void			displayFloat(const ConversionResult& result);
     	static void			displayDouble(const ConversionResult& result);
 
-		public:
-			static void convert(const std::string& literal);
+	public:
+		static void			convert(const std::string& literal);
 };
 
 // A static method in a class is a function that:
