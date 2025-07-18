@@ -18,7 +18,7 @@ void ScalarConverter::convert(std::string_view literal)
 
     if (type == ScalarConverter::LiteralType::CHAR)
     {
-        char c = literal[1];
+        char c = literal[0];
         int i = static_cast<int>(c);
         float f = static_cast<float>(c);
         double d = static_cast<double>(c);
@@ -144,7 +144,7 @@ ScalarConverter::LiteralType ScalarConverter::detectType(std::string_view s)
 
 bool ScalarConverter::isCharLiteral(std::string_view s)
 {
-    return s.size() == 3 && s.front() == '\'' && s.back() == '\'' && std::isprint(s[1]);
+    return s.size() == 1 && !std::isdigit(s[0]) && std::isprint(s[0]);
 }
 
 bool ScalarConverter::isIntLiteral(std::string_view s)

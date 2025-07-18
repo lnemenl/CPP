@@ -39,3 +39,18 @@ class ScalarConverter
 		static void displayFloat(float f, double d);
 		static void displayDouble(double d);
 };
+
+
+/*
+
+In C++, a static method is a function defined inside a class that:
+
+ - Does not operate on a specific object (this pointer is not available).
+
+ - Can be called without creating an object.
+
+ - It belongs to the class itself, not to any particular instance.
+
+ - "This method does not require an object to call it. It belongs to the class, not an instance."
+ 
+ */
