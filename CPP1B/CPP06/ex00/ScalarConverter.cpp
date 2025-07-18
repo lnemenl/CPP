@@ -171,7 +171,8 @@ bool ScalarConverter::isDoubleLiteral(std::string_view s)
     if (i == s.size()) return false;
     for (; i < s.size(); ++i)
     {
-        if (s[i] == '.') {
+        if (s[i] == '.')
+        {
             if (dot) return false;
             dot = true;
         } else if (!std::isdigit(s[i])) return false;

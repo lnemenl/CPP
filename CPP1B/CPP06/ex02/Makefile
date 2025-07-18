@@ -12,8 +12,8 @@
 
 NAME				= ex02
 CC					= c++
-CFLAGS				= -Wall -Wextra -Werror
-SRC_FILES			= main.cpp 
+CFLAGS				= -Wall -Wextra -Werror -std=c++20
+SRC_FILES			= main.cpp Base.cpp generate.cpp identify.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re

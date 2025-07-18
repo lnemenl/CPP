@@ -1,19 +1,7 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/16 11:29:53 by rkhakimu          #+#    #+#              #
-#    Updated: 2025/06/26 15:16:23 by rkhakimu         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME				= ex01
 CC					= c++
-CFLAGS				= -Wall -Wextra -Werror
-SRC_FILES			= main.cpp 
+CFLAGS				= -Wall -Wextra -Werror -std=c++20
+SRC_FILES			= main.cpp Serializer.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re
