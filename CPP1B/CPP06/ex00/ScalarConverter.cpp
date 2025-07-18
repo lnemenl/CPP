@@ -151,8 +151,8 @@ bool ScalarConverter::isIntLiteral(std::string_view s)
 {
     if (s.empty()) return false;
     size_t i = (s.front() == '-' || s.front() == '+') ? 1 : 0;
-    if (i == s.size()) return false;
-    for (; i < s.size(); ++i)
+    if (i == s.size()) return false; // Checking whether it is only + or -
+    for (; i < s.size(); ++i) // i is set above for a sign, so we check the real number if it is a digit.
         if (!std::isdigit(s[i])) return false;
     return true;
 }
