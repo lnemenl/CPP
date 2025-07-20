@@ -17,3 +17,16 @@ Base* generate(void)
 	}
 }
 
+
+/*
+	"generate" returns a Base* that points to an A, B, or C object
+
+	-std::srand expects an unsigned int as its seed
+	-std::time is a C function with the signature time_t time(time_t* timer).
+	-If you pass a valid pointer, it stores the time there and returns it.
+	-If you pass nullptr it only returns the time.
+
+	Without seeding (std::srand),
+	std::rand would produce the same sequence every run,
+	making generate predictable (e.g., always returning A).
+*/
