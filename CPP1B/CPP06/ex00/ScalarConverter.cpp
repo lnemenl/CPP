@@ -12,6 +12,7 @@ void ScalarConverter::convert(std::string_view literal)
     std::string trimmed(literal);
     trimmed.erase(0, trimmed.find_first_not_of(" \t"));
     trimmed.erase(trimmed.find_last_not_of(" \t") + 1);
+
     LiteralType type = detectType(trimmed);
     if (type == LiteralType::INVALID)
         return displayImpossible();
@@ -23,37 +24,28 @@ void ScalarConverter::convert(std::string_view literal)
             char c = trimmed[0];
             return displayAll(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c));
         }
+
         if (type == LiteralType::INT)
         {
             int i = std::stoi(trimmed);
             return displayAll(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i));
         }
+
         if (type == LiteralType::FLOAT)
         {
             float f = std::stof(trimmed);
             return displayAll(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f));
         }
+
         if (type == LiteralType::DOUBLE || type == LiteralType::PSEUDO)
         {
             double d = std::stod(trimmed);
             float f = static_cast<float>(d);
-            // Check for float overflow or precision loss
-            if (type == LiteralType::DOUBLE)
-            {
-                // Count significant digits (excluding sign and leading zeros)
-                size_t sig_digits = 0;
-                bool non_zero = false;
-                for (char c : trimmed)
-                {
-                    if (std::isdigit(c))
-                    {
-                        if (c != '0') non_zero = true;
-                        if (non_zero) sig_digits++;
-                    }
-                }
-                if (sig_digits > 7 || std::abs(d) > std::numeric_limits<float>::max() || std::isinf(f))
-                    f = (d > 0) ? std::numeric_limits<float>::infinity() : -std::numeric_limits<float>::infinity();
-            }
+
+            // If double is not inf, but float conversion results in inf or nan, assume overflow
+            if ((std::isinf(f) && !std::isinf(d)) || std::isnan(f))
+                f = (d > 0) ? std::numeric_limits<float>::infinity() : -std::numeric_limits<float>::infinity();
+
             return displayAll(static_cast<char>(d), static_cast<int>(d), f, d);
         }
     }
@@ -62,6 +54,7 @@ void ScalarConverter::convert(std::string_view literal)
         return displayImpossible();
     }
 }
+
 
 void ScalarConverter::displayAll(char c, int i, float f, double d)
 {
