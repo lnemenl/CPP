@@ -43,7 +43,7 @@ void ScalarConverter::convert(std::string_view literal)
             float f = static_cast<float>(d);
 
             // If double is not inf, but float conversion results in inf or nan, assume overflow
-            if ((std::isinf(f) && !std::isinf(d)) || std::isnan(f))
+            if (!std::isnan(d) && ((std::isinf(f) && !std::isinf(d)) || std::isnan(f)))
                 f = (d > 0) ? std::numeric_limits<float>::infinity() : -std::numeric_limits<float>::infinity();
 
             return displayAll(static_cast<char>(d), static_cast<int>(d), f, d);
@@ -184,3 +184,28 @@ bool ScalarConverter::isPseudoLiteral(std::string_view s)
            s == "+inf" || s == "-inf" ||
            s == "+inff" || s == "-inff";
 }
+
+
+
+/*
+
+#!/bin/bash
+inputs=(
+    "42" "97" "0" "127" "128"
+    "nan" "+inf" "-inf" "nanf"
+    "340000000000000000000000000000"
+    "-340000000000000000000000000000"
+    "2147483648"
+    "3.14f" "0.0f"
+    "2.71828"
+    "hello" "123abc" ""
+    "a" "%" "Z"
+)
+
+for input in "${inputs[@]}"; do
+    echo "Input: '$input'"
+    ./ex00 "$input"
+    echo "-------------------------"
+done
+
+*/
