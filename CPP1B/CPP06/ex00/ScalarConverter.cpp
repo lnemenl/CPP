@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cctype>
 #include <string>
-
 void ScalarConverter::convert(std::string_view literal)
 {
     std::string trimmed(literal);
@@ -39,14 +38,27 @@ void ScalarConverter::convert(std::string_view literal)
 
         if (type == LiteralType::DOUBLE || type == LiteralType::PSEUDO)
         {
-            double d = std::stod(trimmed);
-            float f = static_cast<float>(d);
+            try
+            {
+                double d = std::stod(trimmed);
+                float f = static_cast<float>(d);
 
-            // If double is not inf, but float conversion results in inf or nan, assume overflow
-            if (!std::isnan(d) && ((std::isinf(f) && !std::isinf(d)) || std::isnan(f)))
-                f = (d > 0) ? std::numeric_limits<float>::infinity() : -std::numeric_limits<float>::infinity();
+                // If double is not inf, but float conversion results in inf or nan, assume overflow
+                if (!std::isnan(d) && ((std::isinf(f) && !std::isinf(d)) || std::isnan(f)))
+                    f = (d > 0) ? std::numeric_limits<float>::infinity() : -std::numeric_limits<float>::infinity();
 
-            return displayAll(static_cast<char>(d), static_cast<int>(d), f, d);
+                return displayAll(static_cast<char>(d), static_cast<int>(d), f, d);
+            }
+            catch (const std::out_of_range&)
+            {
+                // Handle overflow: print +inf/-inf for float and double
+                bool negative = (!trimmed.empty() && trimmed[0] == '-');
+                std::cout << "char: impossible\n"
+                          << "int: impossible\n"
+                          << "float: " << (negative ? "-inff" : "+inff") << "\n"
+                          << "double: " << (negative ? "-inf" : "+inf") << "\n";
+                return;
+            }
         }
     }
     catch (...)
