@@ -4,40 +4,40 @@
 #include "C.hpp"
 #include <iostream>
 
-// Identifies the type of p using dynamic_cast with pointers
+// Prints the type ("A", "B", or "C") of the object pointed to by p
+// Uses dynamic_cast to safely check the real type at runtime, as p is Base* but could point to A, B, or C
 void identify(Base* p)
 {
-    // Check for null pointer to avoid undefined behavior
+    // Check for null pointer to avoid confusion if p is nullptr
     if (p == nullptr)
     {
         std::cout << "Error: Null pointer" << std::endl;
         return;
     }
-    // dynamic_cast<A*(p): Uses RTTI to check if p points to an A object.
-	// Follows the object's vptr to its vtable,
-	// which stores type info and virtual function pointers (e.g., ~A).
-	// Returns A* if the type is A, else nullptr.
-	// The if checks the result as a boolean (non-null = true).
 
-    if (dynamic_cast<A*>(p))
+    /*  Try casting to A*, B*, C* to find the real type; print when a cast succeeds
+        When the program runs, generate() randomly picks A, B, or C.
+        The compiler can’t know which one at compile-time (when the code is written).
+        So, you need dynamic_cast to check the type while the program is running (runtime). */
+
+    if (dynamic_cast<A*>(p)) // Is this Base* actually pointing to an A?
         std::cout << "A" << std::endl;
-    else if (dynamic_cast<B*>(p))
+    else if (dynamic_cast<B*>(p)) // Is this Base* actually pointing to B?
         std::cout << "B" << std::endl;
-    else if (dynamic_cast<C*>(p))
+    else if (dynamic_cast<C*>(p)) // Is this Base* actually pointing to C?
         std::cout << "C" << std::endl;
 }
 
-// Identifies the type of p using dynamic_cast with references, no pointers
+/*  Prints the type ("A", "B", or "C") of the object referenced by p
+    Uses dynamic_cast with try-catch to check the real type at runtime without pointers,
+    as p is Base& but refers to A, B, or C */
+
 void identify(Base& p)
 {
-    // (void)dynamic_cast<A&(p): Uses RTTI to check if p refers to an A object
-	// via its vptr and vtable, which stores type info. Succeeds if the type is A, printing "A";
-	// else throws std::bad_cast.
-	// (void) discards the result, as we only check success/failure. No pointers used.
-
+    // Try casting to A&; print "A" if it works, else catch the failure and try B&
     try
     {
-        (void)dynamic_cast<A&>(p);
+        (void)dynamic_cast<A&>(p); // (void) ignores result, we just need to know if it’s an A, no need for A&
         std::cout << "A" << std::endl;
         return;
     }

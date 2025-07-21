@@ -138,9 +138,9 @@ bool ScalarConverter::isIntLiteral(std::string_view s)
     if (s.empty()) return false;
     try
     {
-        size_t pos;
+        size_t pos; // the position in the string where the conversion stopped.
         long long num = std::stoll(std::string(s), &pos);
-        if (pos != s.size()) return false;
+        if (pos != s.size()) return false; //if 123abc, pos = 3 and size = 6 -> false
         return num >= std::numeric_limits<int>::min() &&
                num <= std::numeric_limits<int>::max();
     }
@@ -192,7 +192,7 @@ bool ScalarConverter::isPseudoLiteral(std::string_view s)
 #!/bin/bash
 inputs=(
     "42" "97" "0" "127" "128"
-    "nan" "+inf" "-inf" "nanf"
+    "nan" "+inf" "-inf" "nanf" "+inff" "-inff"
     "340000000000000000000000000000"
     "-340000000000000000000000000000"
     "2147483648"
