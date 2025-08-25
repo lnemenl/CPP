@@ -1,5 +1,5 @@
 #pragma once
-#include <algorithm>
+#include <algorithm> // find
 #include <stdexcept>
 
 
@@ -12,8 +12,6 @@ auto easyfind(T&& container, int value)
 	if (it == container.end()) throw std::runtime_error("Value not found in container");
 	return it;
 }
-
-
 
 /*
 	The rules:
