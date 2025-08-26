@@ -1,7 +1,7 @@
 NAME				= ex01
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror -std=c++17
-SRC_FILES			= main.cpp
+SRC_FILES			= main.cpp Span.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re

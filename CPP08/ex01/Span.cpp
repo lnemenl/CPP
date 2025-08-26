@@ -4,6 +4,7 @@
 #include <numeric>
 
 Span::Span(unsigned int N) : _maxSize(N) {}
+
 void Span::addNumber(int numberToAdd)
 {
     if (_numbers.size() >= _maxSize)
