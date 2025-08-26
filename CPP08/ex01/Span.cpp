@@ -25,4 +25,14 @@ unsigned int Span::shortestSpan()
         throw std::runtime_error("Cannot find span with less than two numbers");
     std::vector<int> temp_vec = _numbers;
     std::sort(temp_vec.begin(), temp_vec.end());
+    unsigned int minSpan = temp_vec[1] - temp_vec[0];
+    for (size_t i = 2; i < temp_vec.size(); ++i)
+    {
+        unsigned int currentSpan = temp_vec[i] - temp_vec[i - 1];
+        if (currentSpan < minSpan)
+        {
+            minSpan = currentSpan;
+        }
+    }
+    return minSpan;
 }
