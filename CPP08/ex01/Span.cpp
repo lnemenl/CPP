@@ -8,14 +8,14 @@ Span::Span(unsigned int N) : _maxSize(N) {}
 void Span::addNumber(int numberToAdd)
 {
     if (_numbers.size() >= _maxSize)
-        throw std::out_of_range("Cannot add number: Span is full");
+        throw SpanIsFull();
     _numbers.push_back(numberToAdd);
 }
 
 unsigned int Span::longestSpan()
 {
     if (_numbers.size() <= 1)
-        throw std::runtime_error("Cannot find span with less than two numbers");
+        throw NotEnoughNumbersForSpan();
     auto result = std::minmax_element(begin(_numbers), end(_numbers));
     return (*result.second - *result.first);
 }
@@ -23,17 +23,23 @@ unsigned int Span::longestSpan()
 unsigned int Span::shortestSpan()
 {
     if (_numbers.size() <= 1)
-        throw std::runtime_error("Cannot find span with less than two numbers");
-    std::vector<int> temp_vec = _numbers;
-    std::sort(temp_vec.begin(), temp_vec.end());
-    unsigned int minSpan = temp_vec[1] - temp_vec[0];
-    for (size_t i = 2; i < temp_vec.size(); ++i)
-    {
-        unsigned int currentSpan = temp_vec[i] - temp_vec[i - 1];
-        if (currentSpan < minSpan)
-        {
-            minSpan = currentSpan;
-        }
-    }
-    return minSpan;
+        throw NotEnoughNumbersForSpan();
+
+    std::vector<int> sortedrvec = _numbers;
+    std::sort(sortedrvec.begin(), sortedrvec.end());
+    std::vector<int> differences(sortedrvec.size());
+    std::adjacent_difference(sortedrvec.begin(), sortedrvec.end(), differences.begin());
+    auto result = std::min_element(differences.begin() + 1, differences.end());
+    return (*result);
+}
+
+
+const char* Span::SpanIsFull::what() const noexcept
+{
+    return "Span is full :(";
+}
+
+const char* Span::NotEnoughNumbersForSpan::what() const noexcept
+{
+    return "Not enough numbers to perform a Span :(";
 }
