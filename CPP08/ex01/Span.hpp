@@ -3,7 +3,6 @@
 #include <exception>
 #include <algorithm>
 #include <vector>
-#include <numeric> // for adjucent_difference
 #include <iterator> // for distance
 
 class Span
@@ -11,6 +10,7 @@ class Span
 	private:
 		unsigned int        _maxSize;
 		std::vector<int>    _numbers;
+
 	public:
 		Span(unsigned int N);
 		~Span() = default;
@@ -23,7 +23,6 @@ class Span
 		void addNumbers(Iterator begin, Iterator end);
 
 		unsigned int shortestSpan();
-
 		unsigned int longestSpan();
 
 		class SpanIsFull : public std::exception
@@ -43,7 +42,12 @@ class Span
 template <typename Iterator>
 void Span::addNumbers(Iterator begin, Iterator end)
 {
-	if (std::distance(begin, end) + _numbers.size() > _maxSize)
+	auto count = static_cast<std::size_t>(std::distance(begin, end));
+	if (count > _maxSize - _numbers.size())
 		throw SpanIsFull();
 	_numbers.insert(_numbers.end(), begin, end);
 }
+
+//_maxSize is how many numbers the Span can hold (fixed at construction)
+//_numbers.size() is how many are already stored
+//count is how many new numbers to add

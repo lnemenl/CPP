@@ -3,19 +3,29 @@
 #include <stack>
 #include <deque>
 
-template <typename T>
-class MutantStack : public std::stack<T>
+template <typename T, typename Container = std::deque<T>>
+class MutantStack : public std::stack<T, Container>
 {
     public:
-        //
-        // Give me the iterator type of whatever container std::stack<T> is using
-        using iteraror = typename std::stack<T>::container_type::iterator;
-        using const_iterator = typename std::stack<T>::container_type::const_iterator;
-        using reverse_iterator = typename std::stack<T>::container_type::reverse_iterator;
-        using const_reverse_iterator = typename std::stack<T>::container_type::const_reverse_iterator;
+        using iterator = typename Container::iterator;
+        using const_iterator = typename Container::const_iterator;
+        using reverse_iterator = typename Container::reverse_iterator;
+        using const_reverse_iterator = typename Container::const_reverse_iterator;
 
         MutantStack() = default;
         ~MutantStack() = default;
         MutantStack(const MutantStack&) = default;
         MutantStack& operator=(const MutantStack&) = default;
+
+        iterator begin() { return <Container&>(*this).begin(); }
+        iterator end() { return <Container&>(*this).end(); }
+
+        const_iterator begin() const { return <Container&>(*this).begin(); }
+        const_iterator end() const { return <Container&>(*this).end(); }
+
+        reverse_iterator rbegin() { return <Container&>(*this).rbegin(); }
+        reverse_iterator rend() { return <Container&>(*this).rend(); }
+
+        const_reverse_iterator rbegin() const { return <Container&>(*this).rbegin(); }
+        const_reverse_iterator rend() const { return <Container&>(*this).rend(); }
 };
