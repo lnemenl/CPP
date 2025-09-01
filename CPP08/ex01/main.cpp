@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <limits>
 
 void printTestHeader(const std::string& title)
 {
@@ -14,8 +15,8 @@ int main()
     try
     {
         Span sp = Span(5);
-        sp.addNumber(6);
-        sp.addNumber(3);
+        sp.addNumber(std::numeric_limits<int>::max());
+        sp.addNumber(std::numeric_limits<int>::min());
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
@@ -96,13 +97,15 @@ int main()
     {
         std::vector<int> largeVec;
         largeVec.reserve(15000);
-        for (int i = 0; i < 15000; ++i)
+        for (int i = 0; i < 14000; ++i)
         {
             largeVec.push_back(rand());
         }
         
         Span sp(15000);
         sp.addNumbers(largeVec.begin(), largeVec.end());
+        sp.addNumber(std::numeric_limits<int>::max());
+        sp.addNumber(std::numeric_limits<int>::min());
         
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;

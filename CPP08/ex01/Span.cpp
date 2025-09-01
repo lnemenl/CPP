@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <limits>
+#include <exception>
 
 Span::Span(unsigned int N) : _maxSize(N) {}
 
@@ -28,7 +30,9 @@ unsigned int Span::longestSpan()
         throw NotEnoughNumbersForSpan();
     auto result = std::minmax_element(begin(_numbers), end(_numbers));
     long long span = static_cast<long long>(*result.second) - static_cast<long long>(*result.first);
-    return static_cast<unsigned int>(span);
+    if (span > std::numeric_limits<int>::max() || span < std::numeric_limits<int>::min())
+        throw std::out_of_range("Span out of int range L");
+    return span < 0 ? -span : span;
 }
 
 unsigned int Span::shortestSpan()
@@ -47,5 +51,7 @@ unsigned int Span::shortestSpan()
             minSpan = currentSpan;
         }
     }
-    return static_cast<unsigned int>(minSpan);
+    if (minSpan > std::numeric_limits<int>::max() || minSpan < std::numeric_limits<int>::min())
+        throw std::out_of_range("Stap out of int range S");
+    return minSpan < 0 ? -minSpan : minSpan;
 }
