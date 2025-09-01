@@ -53,7 +53,7 @@ int main()
 		std::vector<int>::const_iterator it = easyfind(const_numbers, 99);
 		std::cout << "Found value: " << *it << std::endl;
 
-		// The line below will NOT compile, which PROVES our function is const-correct.
+		// The line below will NOT compile, which PROVES the function is const-correct.
 		// *it = 100;
 		std::cout << "Value cannot be modified through const_iterator (Correct!)." << std::endl;
 	}

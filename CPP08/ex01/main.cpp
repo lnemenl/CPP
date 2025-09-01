@@ -6,7 +6,7 @@
 
 void printTestHeader(const std::string& title)
 {
-    std::cout << "\n--- " << title << " ---\n";
+    std::cout << "\n=== " << title << " ===\n";
 }
 
 int main()

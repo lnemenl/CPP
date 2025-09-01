@@ -1,37 +1,10 @@
-// #include "MutantStack.hpp"
-
-// #include <iostream>
-
-// int main()
-// {
-// 	MutantStack<int> mstack;
-// 	mstack.push(5);
-// 	mstack.push(17);
-// 	std::cout << mstack.top() << std::endl;
-// 	mstack.pop();
-// 	std::cout << mstack.size() << std::endl;
-// 	mstack.push(3);
-// 	mstack.push(5);
-// 	mstack.push(737);
-// 	mstack.push(0);
-// 	MutantStack<int>::iterator it = mstack.begin();
-// 	MutantStack<int>::iterator ite = mstack.end();
-// 	++it;
-// 	--it;
-// 	while (it != ite)
-// 	{
-// 		std::cout << *it << std::endl;
-// 		++it;
-// 	}
-// 	std::stack<int> s(mstack);
-// 	return 0;
-// }
-
 #include "MutantStack.hpp"
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <numeric>
+#include <list>
+#include <vector>
 
 void printHeader(const std::string& title)
 {
@@ -136,6 +109,49 @@ int main()
 		auto notfound = std::find(ms.begin(), ms.end(), 9);
 		std::cout << "Find(9): " << (notfound != ms.end() ? "found" : "not found") << "\n(expected not found)" << std::endl;
 	}
+
+	{
+		printHeader("Test 10: MutantStack with std::list");
+
+		MutantStack<int, std::list<int>> ms_list;
+		for (int i = 1; i <= 5; ++i) ms_list.push(i);
+
+		std::cout << "MutantStack<std::list> contents: ";
+		for (auto it = ms_list.begin(); it != ms_list.end(); ++it)
+			std::cout << *it << ' ';
+		std::cout << "\n(expected 1 2 3 4 5)" << std::endl;
+
+		// std::list
+		std::list<int> lst;
+		for (int i = 1; i <= 5; ++i) lst.push_back(i);
+
+		std::cout << "std::list contents:              ";
+		for (auto it = lst.begin(); it != lst.end(); ++it)
+			std::cout << *it << ' ';
+		std::cout << "\n" << std::endl;
+	}
+
+	{
+		printHeader("Test 11: MutantStack with std::vector as underlying container");
+
+		MutantStack<int, std::vector<int>> ms_vec;
+		for (int i = 1; i <= 5; ++i) ms_vec.push(i * 10);  // 10,20,30,40,50
+
+		std::cout << "MutantStack<std::vector> contents: ";
+		for (auto it = ms_vec.begin(); it != ms_vec.end(); ++it)
+			std::cout << *it << ' ';
+		std::cout << "\n(expected 10 20 30 40 50)" << std::endl;
+
+		// std::vector
+		std::vector<int> vec;
+		for (int i = 1; i <= 5; ++i) vec.push_back(i * 10);
+
+		std::cout << "std::vector contents:              ";
+		for (auto it = vec.begin(); it != vec.end(); ++it)
+			std::cout << *it << ' ';
+		std::cout << "\n" << std::endl;
+	}
+
 
 	return 0;
 }
