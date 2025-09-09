@@ -5,21 +5,15 @@
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, float> mapa;
+		std::map<std::string, float> _data;
+
+		void loadDatabase();
+		void parseDatabaseLine(const std::string& line);
+
+		
 	public:
-		BitcoinExchange() = default;
+		BitcoinExchange();
 		~BitcoinExchange() = default;
 		BitcoinExchange(const BitcoinExchange&) = delete;
 		BitcoinExchange& operator=(const BitcoinExchange&) = delete;
-
-		std::map<std::string, float>& getMapa()
-		{
-			return mapa;
-		}
-
-		const std::map<std::string, float>& getMapa() const
-		{
-			return mapa;
-		}
-
 };
