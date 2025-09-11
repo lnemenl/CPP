@@ -9,18 +9,16 @@
 #include <exception>
 
 
-int ReadingTheInput()
+BitcoinExchange::BitcoinExchange()
 {
-    std::ifstream inFile("data.csv");
-    if (inFile.fail())
+    try
     {
-        std::cout << "Error: could not open the file" << std::endl;
-        return (1);
+        this->loadDatabase();
     }
-    std::string line;
-    std::getline(inFile, line);
-
-    
+    catch(const std::exception& e)
+    {
+        throw;
+    }
 }
 
 void BitcoinExchange::loadDatabase()

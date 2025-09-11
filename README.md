@@ -25,7 +25,6 @@
    ```
 
 2. **Explore each module:**
-   - Each module (`CPP00`, `CPP01`, ..., `CPP08`) is in its own folder.
    - Read the `README.md` inside each module for detailed instructions.
 
 3. **Build & Run:**
