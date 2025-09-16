@@ -9,7 +9,9 @@ class BitcoinExchange
 
 		void loadDatabase();
 		void parseDatabaseLine(const std::string& line);
-
+		void processInputFile(const std::string& filename);
+		bool isValidValue(float value) const;
+		bool isValidDate(const std::string& dateStr) const;
 		
 	public:
 		BitcoinExchange();
