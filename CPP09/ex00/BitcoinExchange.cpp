@@ -127,7 +127,7 @@ float BitcoinExchange::findExchangeRate(const std::string&date) const
 {
     std::map<std::string, float>::const_iterator it = _data.lower_bound(date);
     if (it != _data.end() && it->first == date) return it->second;
-    if (it == _data.begin()) throw std::runtime_error("Error: no info for this/earlier date");
+    if (it == _data.begin()) throw std::runtime_error("no info for this/earlier date");
     --it;
     return it->second;
 }
@@ -192,6 +192,6 @@ void BitcoinExchange::processLine(const std::string& line)
     }
     catch (const std::runtime_error& e)
     {
-        std::cerr << "Error: " << e.what() << " for date " << date << std::endl;
+        std::cerr << "Error: " << e.what() << " => " << date << std::endl;
     }
 }
