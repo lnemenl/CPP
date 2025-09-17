@@ -1,7 +1,7 @@
 NAME				= btc
 CC					= c++
 CFLAGS				= -Wall -Wextra -Werror
-SRC_FILES			= main.cpp
+SRC_FILES			= main.cpp BitcoinExchange.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
 .PHONY: all clean fclean re
