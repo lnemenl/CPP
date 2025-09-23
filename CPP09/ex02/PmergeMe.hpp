@@ -5,12 +5,11 @@
 
 class PmergeMe
 {
-
 	public:
 		PmergeMe() = delete;
-		~PmergeMe() = delete;
-		PmergeMe(const PmergeMe&) = delete;
-		PmergeMe& operator=(const PmergeMe&) = delete;
+		~PmergeMe() = default;
+		PmergeMe(const PmergeMe&) = default;
+		PmergeMe& operator=(const PmergeMe&) = default;
 
 		static void sort(std::vector<int>& container);
 		static void sort(std::deque<int>& container);

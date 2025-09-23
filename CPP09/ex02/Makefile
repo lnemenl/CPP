@@ -1,6 +1,6 @@
 NAME				= PmergeMe
 CC					= c++
-CFLAGS				= -Wall -Wextra -Werror
+CFLAGS				= -Wall -Wextra -Werror -std=c++17
 SRC_FILES			= main.cpp PmergeMe.cpp
 OBJ_FILES			= $(SRC_FILES:.cpp=.o)
 
