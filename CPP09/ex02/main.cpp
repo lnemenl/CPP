@@ -102,3 +102,15 @@ int main(int argc, char** argv)
 
 	return 0;
 }
+
+
+/*
+	./PmergeMe `jot -r 3000 1 100000 | gtr '\n' ' '`
+
+	if (argc == 1)
+	{  
+		int x;
+    	while (std::cin >> x) data.push_back(x);
+	}
+
+*/

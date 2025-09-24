@@ -45,7 +45,7 @@ namespace vector_impl
 	std::vector<details::IntPair> reorder_pendants(const std::vector<int>& sorted_main, const std::vector<details::IntPair>& pendants)
 	{
 		std::vector<details::IntPair> ordered;
-		for (int large : sorted_main)
+		for (int large : sorted_main) // for each element inside sorted_main copy it into large
 		{
 			auto it = std::find_if(pendants.begin(), pendants.end(), [large](const details::IntPair& p)
 			{
@@ -77,7 +77,7 @@ namespace vector_impl
 	// Processing milestones into reverse batches
 	void add_milestone_batches(std::vector<size_t>& batches, const std::vector<size_t>& sequence, size_t& last)
 	{
-		for (size_t milestone : sequence)
+		for (size_t milestone : sequence) // for each element in sequence copy it into milestone
 		{
 			for (size_t j = milestone; j > last; --j)
 			{
