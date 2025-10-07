@@ -1,6 +1,6 @@
-# CPP Modules 00–08
+# C++ Modules 00–09
 
-## 📚 Modules Overview
+##  Modules Overview
 
 | Module   | Description                                      |
 |----------|--------------------------------------------------|
@@ -13,10 +13,11 @@
 | **CPP06** | C++ casts, static, dynamic, reinterpret, const   |
 | **CPP07** | Templates, iterators, algorithm basics           |
 | **CPP08** | Containers, more algorithms, fun with STL        |
+| **CPP09** | Advanced STL, container performance analysis, and complex algorithms        |
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. **Clone the repository:**
    ```bash
@@ -24,14 +25,9 @@
    cd CPP
    ```
 
-2. **Explore each module:**
-   - Read the `README.md` inside each module for detailed instructions.
-
-3. **Build & Run:**
-   - Most modules use a simple `Makefile`.
-   - Example:
+2. **Build & Run:**
      ```bash
-     cd CPP00
+     cd CPP00 - CPP09/Exercise
      make
-     ./yourModuleExecutable
+     ./ModuleExecutable
      ```

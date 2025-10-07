@@ -38,7 +38,6 @@ private:
     static void displayDouble(double d);
 };
 
-
 /*
 
 In C++, a static method is a function defined inside a class that:

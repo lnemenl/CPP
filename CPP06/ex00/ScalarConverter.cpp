@@ -197,8 +197,6 @@ bool ScalarConverter::isPseudoLiteral(std::string_view s)
            s == "+inff" || s == "-inff";
 }
 
-
-
 /*
 
 #!/bin/bash

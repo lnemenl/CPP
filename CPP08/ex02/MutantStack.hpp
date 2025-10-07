@@ -31,7 +31,6 @@ class MutantStack : public std::stack<T, Container>
 		const_reverse_iterator rend() const { return c.rend(); }
 };
 
-
 /*
 	using std::stack<T, Container>::c; means:
 	"Take the thing named c from std::stack (the parent),

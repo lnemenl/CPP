@@ -6,7 +6,6 @@ class Base
 		virtual ~Base();
 };
 
-
 /*
 		Virtual Destructor:
 		A virtual destructor in the base class (Base::~Base()) ensures that the correct destructor is called when deleting a derived object through a base pointer.

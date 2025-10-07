@@ -1,18 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rkhakimu <rkhakimu@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 10:13:01 by rkhakimu          #+#    #+#             */
-/*   Updated: 2025/06/06 17:50:19 by rkhakimu         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//WIP
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : name(), FragTrap(hit_points), 
+DiamondTrap::DiamondTrap() : name(), FragTrap(hit_points)
 {
 	std::cout << "[DiamondTrap] Constructor called for " << name << std::endl;
 }

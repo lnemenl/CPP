@@ -17,7 +17,6 @@ Base* generate(void)
 	}
 }
 
-
 /*
 	"generate" returns a Base* that points to an A, B, or C object
 

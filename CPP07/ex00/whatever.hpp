@@ -22,7 +22,6 @@ const T& max(const T& a, const T& b)
 	return (a > b) ? a : b;
 }
 
-
 /*
 In C++, we primarily pass arguments by reference for two key reasons:
 

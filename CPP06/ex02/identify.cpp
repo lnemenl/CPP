@@ -58,7 +58,6 @@ void identify(Base& p)
     catch (std::bad_cast&) {}
 }
 
-
 /*
 	Polymorphism:
 	Polymorphism allows objects of derived classes (A, B, C) to be treated as objects of their base class (Base).
